@@ -1,0 +1,8 @@
+{
+  "appId": "com.merzlabs.pecuniator.app",
+  "appName": "pecuniator-app",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
