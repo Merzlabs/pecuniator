@@ -28,7 +28,7 @@ console.log(budgte.name, budget.summary());
 We want to start the Pecuniator journey with a minimum viable product that is Pecuniator App. For this we need to start with the most basic features to show the capabilities and vision of this idea:
 
 * No customer data on external servers. Everything local
-* Import CAMT style CSV transaction data
+* Import CAMT transaction data
 * Store data in a local SQLite database
 * Write a basic synchronous API with objects and typings to access data
 * (Monaco editor for building scripts)
