@@ -45,3 +45,9 @@ There are some ideas with their own challenges and work needed. In no particular
 * Webhooks
 * Access to live data via PSD2 XS2A. PoC [here](https://github.com/Merzlabs/pycuniator) and [here](https://github.com/Merzlabs/pecuniatordotgo)
 * Mobile and desktop Sync
+
+## Development
+
+### Running the electron app
+
+Clone this repo and run this script `npm run build:electron`.
