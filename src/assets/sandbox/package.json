@@ -1,0 +1,33 @@
+{
+  "name": "@merzlabs/pecuniator-app-sandbox",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/Merzlabs/pecuniator-app.git",
+    "directory": "packages/sandbox"
+  },
+  "version": "0.0.2",
+  "description": "Webworker environment for pecuniator scripts",
+  "main": "sandbox.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Merzlabs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Merzlabs/pecuniator-app/issues"
+  },
+  "homepage": "https://github.com/Merzlabs/pecuniator-app#readme",
+  "devDependencies": {
+    "browserify": "^16.5.0",
+    "camtts": "0.0.3",
+    "tsify": "^4.0.1",
+    "typescript": "^3.7.2",
+    "xmldom": "^0.1.27"
+  },
+  "dependencies": {
+    "@merzlabs/pecuniator-api": "file:../../../pecuniator-api"
+  }
+}

@@ -1,19 +1,28 @@
 {
-  "name": "pecuniator-app",
+  "name": "@merzlabs/pecuniator-app",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/Merzlabs/pecuniator-app.git",
+    "directory": "packages/app"
+  },
   "version": "0.0.1",
-  "author": "Ionic Framework",
+  "author": "Merzlabs",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points && cd electron && npm i && cd ../src/assets/sandbox && npm i",
     "start": "ng serve",
-    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:electron": "ng build --base-href ./ && npx cap copy && cd electron && npm run electron:start"
+    "serve": "cd pecuniator-api && npm run build && ionic serve",
+    "prebuild": "cd pecuniator-api && npm run build",
+    "build": "ng build --base-href ./ && npx cap copy",
+    "build:electron": "npm run build && cd electron && npm run electron:start"
   },
-  "private": true,
   "dependencies": {
     "@angular/common": "~9.0.0-rc.1",
     "@angular/core": "~9.0.0-rc.1",
@@ -28,6 +37,8 @@
     "@ionic/angular": "^4.7.1",
     "camtts": "0.0.2",
     "core-js": "^2.5.4",
+    "monaco-editor": "^0.18.1",
+    "ngx-monaco-editor": "^8.1.1",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.10.2"
@@ -45,7 +56,6 @@
     "@ionic/angular-toolkit": "~2.0.0",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
