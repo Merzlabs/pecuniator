@@ -10,7 +10,7 @@ export class Tab3Page {
 
   constructor() {
 
-    const parser = CAMT.parse(`<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02" 
+    const stringToParse = `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02 camt.052.001.02.xsd">
     <BkToCstmrAcctRpt>
         <GrpHdr>
@@ -226,12 +226,10 @@ export class Tab3Page {
             </Ntry>
         </Rpt>
     </BkToCstmrAcctRpt>
-</Document>`);
-
-    console.log(parser.groupHeader.messageId);
+</Document>`;
 
     const worker = new Worker('assets/sandbox/script.js');
-    worker.postMessage(parser.groupHeader.messageId);
+    worker.postMessage(stringToParse);
 
   }
 
