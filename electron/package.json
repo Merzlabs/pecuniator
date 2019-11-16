@@ -1,7 +1,13 @@
 {
-  "name": "capacitor-app",
-  "version": "1.0.0",
-  "description": "An Amazing Capacitor App",
+  "name": "@merzlabs/pecuniator-app-electron",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "repository" : {
+    "type" : "git",
+    "url": "ssh://git@github.com/Merzlabs/pecuniator-app.git",
+    "directory": "packages/electron"
+  },
+  "version": "0.0.1",
+  "description": "Electron app of Pecuniator project",
   "main": "index.js",
   "scripts": {
     "electron:start": "electron ./"
@@ -18,5 +24,5 @@
     "electron"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }

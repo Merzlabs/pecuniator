@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
-import CAMT from 'camtts';
-
+import { Component, OnInit } from '@angular/core';
 @Component({
-  selector: 'app-tab3',
-  templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss']
+    selector: 'app-tab3',
+    templateUrl: 'tab3.page.html',
+    styleUrls: ['tab3.page.scss']
 })
-export class Tab3Page {
+export class Tab3Page implements OnInit {
+    readonly stringToParse: string;
+    text: string;
+    editorOptions = { theme: 'vs-dark', language: 'javascript' };
+    code = '';
+    worker: Worker;
 
-  constructor() {
+    constructor() {
 
-    const parser = CAMT.parse(`<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02" 
+        this.stringToParse = `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02 camt.052.001.02.xsd">
     <BkToCstmrAcctRpt>
         <GrpHdr>
@@ -226,11 +229,31 @@ export class Tab3Page {
             </Ntry>
         </Rpt>
     </BkToCstmrAcctRpt>
-</Document>`)
+</Document>`;
+    }
 
-    console.log(parser.groupHeader.messageId);
+    ngOnInit() {
+        fetch('assets/sandbox/script.js').then(async (res) => {
+            this.code = await res.text();
+        });
 
+        this.worker = new Worker('assets/sandbox/sandbox.js');
+    }
 
-  }
+    parseExample() {
+        this.worker.postMessage({script: this.code, camtData: this.stringToParse});
+        this.worker.onmessage =  ((ev: MessageEvent) => {
+            this.text = ev.data;
+        });
+        setTimeout(async () => {
+            this.worker.terminate();
+
+            // Create new worker with no user code and data
+            this.worker = new Worker('assets/sandbox/sandbox.js');
+
+            // tslint:disable-next-line: no-console
+            console.info('Worker terminated');
+        }, 5000);
+    }
 
 }
