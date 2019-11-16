@@ -29,10 +29,9 @@ console.log(budgte.name, budget.summary());
 
 We want to start the Pecuniator journey with a minimum viable product that is Pecuniator App. For this we need to start with the most basic features to show the capabilities and vision of this idea:
 
-* No customer data on external servers. Everything local
+* No customer data on external servers. Everything is local
 * Import CAMT transaction data
-* Store data in a local SQLite database
-* Write a basic synchronous API with objects and typings to access data
+* Write a basic synchronous API with objects (and typings) to access data
 * (Monaco editor for building scripts)
 
 ### Planned features
@@ -52,4 +51,4 @@ There are some ideas with their own challenges and work needed. In no particular
 
 ### Running the electron app
 
-Clone this repo and run this script `npm run build:electron`.
+Clone this repository, run `npm install` and run this script `npm run build:electron`.
