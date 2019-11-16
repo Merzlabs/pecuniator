@@ -1,18 +1,19 @@
 {
-  "name": "@merzlabs/pecuniator-app-sandbox",
+  "name": "@merzlabs/pecuniator-api",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/Merzlabs/pecuniator-app.git",
-    "directory": "packages/sandbox"
+    "directory": "packages/api"
   },
-  "version": "0.0.2",
-  "description": "Webworker environment for pecuniator scripts",
-  "main": "sandbox.js",
+  "version": "0.0.1",
+  "description": "Public script API for Pecuniator project",
+  "main": "main.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "browserify camt.ts --s CAMT -p [ tsify --noImplicitAny ] > ./dist/camt.js"
   },
   "author": "Merzlabs",
   "license": "MIT",
@@ -26,8 +27,5 @@
     "tsify": "^4.0.1",
     "typescript": "^3.7.2",
     "xmldom": "^0.1.27"
-  },
-  "dependencies": {
-    "@merzlabs/pecuniator-api": "file:../../../pecuniator-api"
   }
 }

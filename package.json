@@ -13,13 +13,13 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points && cd src/assets/sandbox && npm i",
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points && cd src/assets/sandbox && npm i && cd pecuniator-api && npm i",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "prebuild:electron": "cd src/assets/sandbox && npm run build",
+    "prebuild:electron": "cd pecuniator-api && npm run build",
     "build:electron": "ng build --base-href ./ && npx cap copy && cd electron && npm run electron:start"
   },
   "dependencies": {

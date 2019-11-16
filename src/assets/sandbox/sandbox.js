@@ -1,5 +1,5 @@
 try {
-  importScripts('./build/camt.js');
+  importScripts('./node_modules/@merzlabs/pecuniator-api/dist/camt.js');
 } catch(e) {
   console.error('Import failed', e);
 }
