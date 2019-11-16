@@ -8,7 +8,6 @@ const camtts_1 = __importDefault(require("camtts"));
 class PecuniAPI {
     constructor() {
         this.reports = [];
-        this.test = "2";
     }
     load(data) {
         this.reports.push(camtts_1.default.parse(data));
