@@ -5,9 +5,9 @@ importScripts('./build/camt.js');
 
 onmessage = function(e) {
   console.log('Worker: Message received from main script');
-  let result = e.data;
-  this.console.log(result);
+  const result = e.data;
 
+  /** @type {import('./node_modules/camtts/dist/types/AccountReport').AccountReport} */
   const parser = CAMT.parse(result);
   this.console.info(parser.groupHeader.messageId);
 }
