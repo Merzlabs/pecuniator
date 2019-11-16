@@ -13,7 +13,7 @@
   "main": "sandbox.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify domparser.js --s DOMParser > ./build/domparser.js && browserify camt.ts --s CAMT -p [ tsify --noImplicitAny ] > ./build/camt.js"
+    "build": "browserify camt.ts --s CAMT -p [ tsify --noImplicitAny ] > ./build/camt.js"
   },
   "author": "Merzlabs",
   "license": "MIT",
