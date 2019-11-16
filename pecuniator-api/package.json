@@ -8,12 +8,13 @@
     "url": "ssh://git@github.com/Merzlabs/pecuniator-app.git",
     "directory": "packages/api"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Public script API for Pecuniator project",
   "main": "main.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "browserify camt.ts --s CAMT -p [ tsify --noImplicitAny ] > ./dist/camt.js"
+    "build": "browserify camt.ts --s CAMT -p [ tsify --noImplicitAny ] > ./dist/camt.js",
+    "prepublish": "npm run build"
   },
   "author": "Merzlabs",
   "license": "MIT",
@@ -21,7 +22,7 @@
     "url": "https://github.com/Merzlabs/pecuniator-app/issues"
   },
   "homepage": "https://github.com/Merzlabs/pecuniator-app#readme",
-  "devDependencies": {
+  "dependencies": {
     "browserify": "^16.5.0",
     "camtts": "0.0.3",
     "tsify": "^4.0.1",
