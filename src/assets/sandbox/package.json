@@ -1,0 +1,21 @@
+{
+  "name": "pecuniator-sandbox",
+  "version": "1.0.0",
+  "description": "Webworker environment for pecuniator scripts",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify domparser.js --s xmldom > ./build/domparser_bundle.js"
+  },
+  "author": "Merzlabs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Merzlabs/pecuniator-app/issues"
+  },
+  "homepage": "https://github.com/Merzlabs/pecuniator-app#readme",
+  "devDependencies": {
+    "browserify": "^16.5.0",
+    "camtts": "0.0.2",
+    "xmldom": "^0.1.27"
+  }
+}

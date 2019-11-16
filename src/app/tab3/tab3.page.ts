@@ -226,10 +226,12 @@ export class Tab3Page {
             </Ntry>
         </Rpt>
     </BkToCstmrAcctRpt>
-</Document>`)
+</Document>`);
 
     console.log(parser.groupHeader.messageId);
 
+    const worker = new Worker('assets/sandbox/script.js');
+    worker.postMessage(parser.groupHeader.messageId);
 
   }
 
