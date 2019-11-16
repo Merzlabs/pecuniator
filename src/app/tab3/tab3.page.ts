@@ -9,6 +9,7 @@ export class Tab3Page implements OnInit {
     text: string;
     editorOptions = { theme: 'vs-dark', language: 'javascript' };
     code = '';
+    sandboxFrame: HTMLIFrameElement;
 
     constructor() {
 
@@ -235,20 +236,21 @@ export class Tab3Page implements OnInit {
         fetch('assets/sandbox/script.js').then(async (res) => {
             this.code = await res.text();
         });
+
+        this.sandboxFrame = document.createElement('iframe');
+        this.sandboxFrame.sandbox.add('allow-scripts');
+        this.sandboxFrame.src = 'assets/sandbox/sandbox.html';
+
+        window.addEventListener('message', (e) => {
+            console.debug(e);
+            this.text = e.data;
+        });
+
+        document.body.appendChild(this.sandboxFrame);
     }
 
     parseExample() {
-        const worker = new Worker('assets/sandbox/sandbox.js');
-        worker.postMessage({script: this.code, camtData: this.stringToParse});
-        worker.onmessage =  ((ev: MessageEvent) => {
-            this.text = ev.data;
-        });
-        setTimeout(async () => {
-            worker.terminate();
-
-            // tslint:disable-next-line: no-console
-            console.info('Worker terminated');
-        }, 5000);
+        this.sandboxFrame.contentWindow.postMessage({ script: this.code, camtData: this.stringToParse }, '*');
     }
 
 }

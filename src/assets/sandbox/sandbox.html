@@ -1,0 +1,16 @@
+<script>
+    const worker = new Worker('./sandbox.js');
+    window.addEventListener('message' , (e) => {
+        worker.onmessage = ((ev) => {
+            console.debug(e);
+            window.parent.postMessage(ev.data, '*');
+        });
+        worker.postMessage({ script: e.script, camtData: e.camtData });
+        setTimeout(async () => {
+            worker.terminate();
+
+            // tslint:disable-next-line: no-console
+            console.info('Worker terminated');
+        }, 5000);
+    })
+</script>
