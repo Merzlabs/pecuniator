@@ -10,12 +10,14 @@ Just a quick example:
 
 ```javascript
 var budget = new Budget({name: "My car budget", interval: "yearly"});
-var account = Accounts.get("MYGIROIBAN");
+const accountQuery = new AccountQuery();
+accountQuery.iban.equals("MYGIROIBAN");
+const account = Accounts.query(accountQuery);
 
 const insuranceQuery = new TransactionsQuery();
 insuranceQuery.subject.contains("Insurance Payment Car");
 //insuranceQuery.subject.regex(..
-insuranceQuery.iban.equals("DE....")
+insuranceQuery.iban.equals("DE....");
 
 const insuranceTransactions = account.query(insuranceQuery);
 budget.add("Insurance", insuranceTransactions);
