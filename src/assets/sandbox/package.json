@@ -1,12 +1,14 @@
 {
   "name": "@merzlabs/pecuniator-app-sandbox",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
-  "repository" : {
-    "type" : "git",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
     "url": "ssh://git@github.com/Merzlabs/pecuniator-app.git",
     "directory": "packages/sandbox"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Webworker environment for pecuniator scripts",
   "main": "script.js",
   "scripts": {
