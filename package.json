@@ -13,7 +13,7 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points && cd src/assets/sandbox && npm i && cd pecuniator-api && npm i",
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points && cd electron && npm i && cd src/assets/sandbox && npm i && cd pecuniator-api && npm i",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
