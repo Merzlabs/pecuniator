@@ -238,10 +238,8 @@ export class Tab3Page implements OnInit {
     }
 
     parseExample() {
-        //const blob = new Blob([this.code], { type: 'text/javascript' });
-        //const worker = new Worker(URL.createObjectURL(blob));
-        const worker = new Worker('assets/sandbox/script.js');
-        worker.postMessage(this.stringToParse);
+        const worker = new Worker('assets/sandbox/sandbox.js');
+        worker.postMessage({script: this.code, camtData: this.stringToParse});
         worker.onmessage =  ((ev: MessageEvent) => {
             this.text = ev.data;
         });
