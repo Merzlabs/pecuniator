@@ -18,7 +18,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build": "ng build --base-href ./ && npx cap copy && cd electron && npm run electron:start",
+    "build": "ng build --base-href ./ && npx cap copy",
     "build:electron": "ng build --base-href ./ && npx cap copy && cd electron && npm run electron:start"
   },
   "dependencies": {
