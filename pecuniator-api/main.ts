@@ -1,5 +1,16 @@
 import CAMT from 'camtts';
 import { AccountReport } from 'camtts/dist/types/AccountReport';
+import { Account as CAMTAccount } from 'camtts/dist/types/Report';
+
+
+class Account {
+
+    constructor(private account: CAMTAccount) { }
+
+    get currency() {
+        return this.account.currency;
+    }
+}
 
 class PecuniAPI {
     reports: Array<AccountReport>;
@@ -10,6 +21,10 @@ class PecuniAPI {
 
     load(data: string) {
         this.reports.push(CAMT.parse(data));
+    }
+
+    get accounts() {
+        return this.reports.map((elem) => new Account(elem.report.account));
     }
 }
 

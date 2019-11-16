@@ -5,12 +5,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const camtts_1 = __importDefault(require("camtts"));
+class Account {
+    constructor(account) {
+        this.account = account;
+    }
+    get currency() {
+        return this.account.currency;
+    }
+}
 class PecuniAPI {
     constructor() {
         this.reports = [];
     }
     load(data) {
         this.reports.push(camtts_1.default.parse(data));
+    }
+    get accounts() {
+        return this.reports.map((elem) => new Account(elem.report.account));
     }
 }
 module.exports = PecuniAPI;
