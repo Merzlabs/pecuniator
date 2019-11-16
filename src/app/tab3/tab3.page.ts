@@ -9,6 +9,7 @@ export class Tab3Page implements OnInit {
     text: string;
     editorOptions = { theme: 'vs-dark', language: 'javascript' };
     code = '';
+    worker: Worker;
 
     constructor() {
 
@@ -235,16 +236,20 @@ export class Tab3Page implements OnInit {
         fetch('assets/sandbox/script.js').then(async (res) => {
             this.code = await res.text();
         });
+
+        this.worker = new Worker('assets/sandbox/sandbox.js');
     }
 
     parseExample() {
-        const worker = new Worker('assets/sandbox/sandbox.js');
-        worker.postMessage({script: this.code, camtData: this.stringToParse});
-        worker.onmessage =  ((ev: MessageEvent) => {
+        this.worker.postMessage({script: this.code, camtData: this.stringToParse});
+        this.worker.onmessage =  ((ev: MessageEvent) => {
             this.text = ev.data;
         });
         setTimeout(async () => {
-            worker.terminate();
+            this.worker.terminate();
+
+            // Create new worker with no user code and data
+            this.worker = new Worker('assets/sandbox/sandbox.js');
 
             // tslint:disable-next-line: no-console
             console.info('Worker terminated');
