@@ -1,7 +1,5 @@
 importScripts('./build/domparser_bundle.js');
 
-var DOMParser = xmldom.DOMParser;
-
 onmessage = function(e) {
   console.log('Worker: Message received from main script');
   let result = e.data;
