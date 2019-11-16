@@ -1,9 +1,18 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Three
+      Sandbox
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-card *ngIf="text">
+    <ion-card-content>
+      {{text}}
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-button (click)="parseExample()">Start sandbox script</ion-button>
+</ion-content>

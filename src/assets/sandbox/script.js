@@ -10,4 +10,5 @@ onmessage = function(e) {
   /** @type {import('./node_modules/camtts/dist/types/AccountReport').AccountReport} */
   const parser = CAMT.parse(result);
   this.console.info(parser.groupHeader.messageId);
+  this.postMessage(parser.groupHeader.messageId);
 }

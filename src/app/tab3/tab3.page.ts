@@ -1,16 +1,19 @@
 import { Component } from '@angular/core';
 import CAMT from 'camtts';
+import { AlertController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-tab3',
-  templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss']
+    selector: 'app-tab3',
+    templateUrl: 'tab3.page.html',
+    styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+    readonly stringToParse: string;
+    text: string;
 
-  constructor() {
+    constructor(private alertCtrl: AlertController) {
 
-    const stringToParse = `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02" 
+        this.stringToParse = `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02 camt.052.001.02.xsd">
     <BkToCstmrAcctRpt>
         <GrpHdr>
@@ -227,10 +230,23 @@ export class Tab3Page {
         </Rpt>
     </BkToCstmrAcctRpt>
 </Document>`;
+    }
 
-    const worker = new Worker('assets/sandbox/script.js');
-    worker.postMessage(stringToParse);
+    parseExample() {
+        const worker = new Worker('assets/sandbox/script.js');
+        worker.postMessage(this.stringToParse);
+        worker.onmessage =  ((ev: MessageEvent) => {
+            this.text = ev.data;
+        });
+        setTimeout(async () => {
+            worker.terminate();
 
-  }
+            const alert = await this.alertCtrl.create({
+                message: 'Sandbox stopped',
+                buttons: ['OK']
+            });
+            alert.present();
+        }, 5000);
+    }
 
 }
