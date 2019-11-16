@@ -1,17 +1,16 @@
-import { Component } from '@angular/core';
-import CAMT from 'camtts';
-import { AlertController } from '@ionic/angular';
-
+import { Component, OnInit } from '@angular/core';
 @Component({
     selector: 'app-tab3',
     templateUrl: 'tab3.page.html',
     styleUrls: ['tab3.page.scss']
 })
-export class Tab3Page {
+export class Tab3Page implements OnInit {
     readonly stringToParse: string;
     text: string;
+    editorOptions = { theme: 'vs-dark', language: 'javascript' };
+    code = '';
 
-    constructor(private alertCtrl: AlertController) {
+    constructor() {
 
         this.stringToParse = `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02 camt.052.001.02.xsd">
@@ -232,7 +231,15 @@ export class Tab3Page {
 </Document>`;
     }
 
+    ngOnInit() {
+        fetch('assets/sandbox/script.js').then(async (res) => {
+            this.code = await res.text();
+        });
+    }
+
     parseExample() {
+        //const blob = new Blob([this.code], { type: 'text/javascript' });
+        //const worker = new Worker(URL.createObjectURL(blob));
         const worker = new Worker('assets/sandbox/script.js');
         worker.postMessage(this.stringToParse);
         worker.onmessage =  ((ev: MessageEvent) => {
@@ -241,11 +248,8 @@ export class Tab3Page {
         setTimeout(async () => {
             worker.terminate();
 
-            const alert = await this.alertCtrl.create({
-                message: 'Sandbox stopped',
-                buttons: ['OK']
-            });
-            alert.present();
+            // tslint:disable-next-line: no-console
+            console.info('Worker terminated');
         }, 5000);
     }
 

@@ -7,7 +7,14 @@
 </ion-header>
 
 <ion-content>
+  <div style="height: 600px">
+    <ngx-monaco-editor style="height: 100%" [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
+  </div>
+
   <ion-card *ngIf="text">
+    <ion-card>
+      Response
+    </ion-card>
     <ion-card-content>
       {{text}}
     </ion-card-content>
