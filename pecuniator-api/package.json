@@ -13,7 +13,7 @@
   "main": "main.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && browserify main.ts --s PecuniAPI -p [ tsify --noImplicitAny ] > ./dist/main.js",
+    "build": "tsc && browserify main.ts --s PecuniAPI -p [ tsify --noImplicitAny ] > ./dist/main.browser.js",
     "prepublish": "npm run build"
   },
   "author": "Merzlabs",
