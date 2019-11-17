@@ -3,16 +3,16 @@ import { AccountReport } from 'camtts/dist/types/AccountReport';
 import { Account as CAMTAccount } from 'camtts/dist/types/Report';
 
 
-class Account {
+class Account implements PecuniatorAccount {
 
     constructor(private account: CAMTAccount) { }
 
     get currency() {
-        return this.account.currency;
+        return this.account.currency ?? '';
     }
 }
 
-class PecuniAPI {
+class PecuniAPI implements Pecuniator {
     reports: Array<AccountReport>;
 
     constructor() {

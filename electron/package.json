@@ -1,8 +1,10 @@
 {
   "name": "@merzlabs/pecuniator-app-electron",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
-  "repository" : {
-    "type" : "git",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
     "url": "ssh://git@github.com/Merzlabs/pecuniator-app.git",
     "directory": "packages/electron"
   },

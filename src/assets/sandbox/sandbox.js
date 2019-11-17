@@ -7,8 +7,8 @@ try {
 onmessage = function(e) {
   const data = e.data;
   console.log('Worker: Message received from main script', data);
-  const Pecuniator = new PecuniAPI()
-  Pecuniator.load(data.camtData);
+  const api = new PecuniAPI()
+  api.load(data.camtData);
 
   eval(data.script);
 }

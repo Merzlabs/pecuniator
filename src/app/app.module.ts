@@ -6,15 +6,39 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { MonacoEditorModule } from 'ngx-monaco-editor';
+import { MonacoEditorModule, NgxMonacoEditorConfig } from 'ngx-monaco-editor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+const monacoConfig: NgxMonacoEditorConfig = {
+  defaultOptions: { scrollBeyondLastLine: false }, // pass default options to be used
+  onMonacoLoad: () => {
+
+    monaco.languages.typescript.javascriptDefaults.setDiagnosticsOptions({
+      noSemanticValidation: true,
+      noSyntaxValidation: false
+    });
+
+    monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
+      target: monaco.languages.typescript.ScriptTarget.ES2016,
+      allowJs: true,
+      allowNonTsExtensions: true
+    });
+
+    fetch('assets/sandbox/node_modules/@merzlabs/pecuniator-api/dist/interface.d.ts').then(async (res) => {
+      const typings = await res.text();
+      console.log(typings);
+      monaco.languages.typescript.javascriptDefaults.addExtraLib(typings, 'api/main.d.ts');
+      console.log((window).monaco);
+    });
+  } // here monaco object will be available as window.monaco use this function to extend monaco editor functionalities.
+};
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), MonacoEditorModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), MonacoEditorModule.forRoot(monacoConfig), AppRoutingModule],
   providers: [
     StatusBar,
     SplashScreen,
@@ -22,4 +46,4 @@ import { AppComponent } from './app.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
