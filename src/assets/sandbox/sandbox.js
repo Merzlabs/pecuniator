@@ -1,5 +1,5 @@
 try {
-  importScripts('./node_modules/@merzlabs/pecuniator-api/dist/main.js');
+  importScripts('./node_modules/@merzlabs/pecuniator-api/dist/main.browser.js');
 } catch(e) {
   console.error('Import failed', e);
 }
