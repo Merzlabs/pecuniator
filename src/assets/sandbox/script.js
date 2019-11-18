@@ -7,4 +7,5 @@ const pecuniator = api;
 const acc = pecuniator.accounts[0];
 
 this.console.info("Script", acc.currency);
-this.postMessage("Nothing");
+const firstTransaction = pecuniator.entries[0];
+this.postMessage(firstTransaction.amount + firstTransaction.currency + " from " + firstTransaction.creditorIBAN);
