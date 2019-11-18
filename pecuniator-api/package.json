@@ -11,10 +11,11 @@
   "version": "0.0.2",
   "description": "Public script API for Pecuniator project",
   "main": "main.ts",
+  "types": "dist/main.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "tsc && node node_modules/jasmine/bin/jasmine --config=jasmine.json",
     "build": "tsc && browserify main.ts --s PecuniAPI -p [ tsify --noImplicitAny ] > ./dist/main.browser.js",
-    "prepublish": "npm run build"
+    "prepare": "npm run build"
   },
   "author": "Merzlabs",
   "license": "MIT",
@@ -28,5 +29,11 @@
     "tsify": "^4.0.1",
     "typescript": "^3.7.2",
     "xmldom": "^0.1.27"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^3.4.6",
+    "@types/node": "^12.12.8",
+    "jasmine": "^3.5.0",
+    "nyc": "^14.1.1"
   }
 }

@@ -2,7 +2,6 @@ import CAMT from 'camtts';
 import { AccountReport } from 'camtts/dist/types/AccountReport';
 import { Account as CAMTAccount } from 'camtts/dist/types/Report';
 
-
 class Account implements PecuniatorAccount {
 
     constructor(private account: CAMTAccount) { }
@@ -12,6 +11,9 @@ class Account implements PecuniatorAccount {
     }
 }
 
+/**
+ * Main entry point of API
+ */
 class PecuniAPI implements Pecuniator {
     reports: Array<AccountReport>;
 
@@ -28,4 +30,4 @@ class PecuniAPI implements Pecuniator {
     }
 }
 
-module.exports = PecuniAPI;
+export = PecuniAPI;
