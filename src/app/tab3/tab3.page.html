@@ -8,18 +8,18 @@
 
 <ion-content>
   <div style="height: 600px">
-    <ngx-monaco-editor style="height: 100%" [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
+    <ngx-monaco-editor style="height: 100%" (onInit)="onInit($event)" [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
   </div>
 
   <ion-card *ngIf="text">
-    <ion-card>
+    <ion-card-title>
       Response
-    </ion-card>
+    </ion-card-title>
     <ion-card-content>
       {{text}}
     </ion-card-content>
   </ion-card>
 
 
-  <ion-button (click)="parseExample()">Start sandbox script</ion-button>
+  <ion-button (click)="parseExample()">Start sandbox script (F5)</ion-button>
 </ion-content>
