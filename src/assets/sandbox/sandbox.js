@@ -7,12 +7,21 @@ try {
 onmessage = function(e) {
   const data = e.data;
   const api = new PecuniAPI()
-  api.load(data.camtData);
+  
+  const files = data.camtData;
+  if (!files || files.length === 0) {
+    this.postMessage('Error: No files!')
+    return;
+  }
+
+  for(const file of files) {
+    api.load(file.content);
+  }
 
   try {
     eval(data.script);
   } catch (e) {
-    this.console.error("Sandbox error", e);
-    this.postMessage("Error: " + e.toString());
+    this.console.error('Sandbox error', e);
+    this.postMessage('Error: ' + e.toString());
   }
 }

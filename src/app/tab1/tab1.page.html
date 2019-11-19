@@ -14,7 +14,13 @@
         <ion-card-title>Welcome to the Pecuniator App</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <p>Go to the "Sandbox" tab to get started</p>
+        <p>Start with adding you CAMT052 XML files here!</p>
+        <p>Then go to the "Sandbox" tab to get started</p>
       </ion-card-content>
     </ion-card>
+
+    <ion-item>
+      <ion-label>Add files</ion-label>
+      <input type="file" multiple id="camtfiles" (change)="handleFileInput($event.target.files)">
+    </ion-item>
 </ion-content>
