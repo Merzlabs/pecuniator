@@ -1,5 +1,3 @@
-console.log('Script data', data);
-
 /** @type {Pecuniator} */
 const pecuniator = api;
 

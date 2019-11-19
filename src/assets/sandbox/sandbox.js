@@ -6,9 +6,13 @@ try {
 
 onmessage = function(e) {
   const data = e.data;
-  console.log('Worker: Message received from main script', data);
   const api = new PecuniAPI()
   api.load(data.camtData);
 
-  eval(data.script);
+  try {
+    eval(data.script);
+  } catch (e) {
+    this.console.error("Sandbox error", e);
+    this.postMessage("Error: " + e.toString());
+  }
 }
