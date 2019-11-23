@@ -8,7 +8,7 @@
     "url": "ssh://git@github.com/Merzlabs/pecuniator-app.git",
     "directory": "packages/api"
   },
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Public script API for Pecuniator project",
   "main": "main.ts",
   "types": "dist/main.d.ts",
