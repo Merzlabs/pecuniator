@@ -27,7 +27,9 @@ const monacoConfig: NgxMonacoEditorConfig = {
     });
 
     fetch('assets/sandbox/node_modules/@merzlabs/pecuniator-api/dist/interface.d.ts').then(async (res) => {
-      const typings = await res.text();
+      let typings = await res.text();
+      // Remove last line with export because monaco intellisense breaks with exports
+      typings = typings.substring(0, typings.lastIndexOf('export'));
       console.log(typings);
       monaco.languages.typescript.javascriptDefaults.addExtraLib(typings, 'api/main.d.ts');
       console.log((window).monaco);
