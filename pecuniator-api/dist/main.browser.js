@@ -1,8 +1,15 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.PecuniAPI = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const main_1 = require("./main");
+exports.default = main_1.PecuniAPI;
+
+},{"./main":2}],2:[function(require,module,exports){
+"use strict";
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 const camtts_1 = __importDefault(require("camtts"));
 class PAccount {
     constructor(account) {
@@ -12,6 +19,7 @@ class PAccount {
         return this.account.currency;
     }
 }
+exports.PAccount = PAccount;
 class PEntry {
     constructor(entry) {
         this.entry = entry;
@@ -41,6 +49,7 @@ class PEntry {
         return this.entry.additionalEntryInfo;
     }
 }
+exports.PEntry = PEntry;
 /**
  * Main entry point of API
  */
@@ -62,9 +71,9 @@ class PecuniAPI {
         return allEntries;
     }
 }
-module.exports = PecuniAPI;
+exports.PecuniAPI = PecuniAPI;
 
-},{"camtts":2}],2:[function(require,module,exports){
+},{"camtts":3}],3:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var AccountReport_1 = require("./types/AccountReport");
@@ -90,7 +99,7 @@ var CAMT = /** @class */ (function () {
 }());
 exports.default = CAMT;
 
-},{"./types/AccountReport":3,"xmldom":7}],3:[function(require,module,exports){
+},{"./types/AccountReport":4,"xmldom":8}],4:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
@@ -154,7 +163,7 @@ var GroupHeader = /** @class */ (function (_super) {
 }(Base_1.CAMTElement));
 exports.GroupHeader = GroupHeader;
 
-},{"./Base":4,"./Report":6}],4:[function(require,module,exports){
+},{"./Base":5,"./Report":7}],5:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var CAMTElement = /** @class */ (function () {
@@ -165,7 +174,7 @@ var CAMTElement = /** @class */ (function () {
 }());
 exports.CAMTElement = CAMTElement;
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
@@ -310,7 +319,7 @@ var RelatedParties = /** @class */ (function (_super) {
 }(Base_1.CAMTElement));
 exports.RelatedParties = RelatedParties;
 
-},{"./Base":4}],6:[function(require,module,exports){
+},{"./Base":5}],7:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
@@ -460,7 +469,7 @@ var FinancialInstitutionId = /** @class */ (function (_super) {
 }(Base_1.CAMTElement));
 exports.FinancialInstitutionId = FinancialInstitutionId;
 
-},{"./Base":4,"./Entry":5}],7:[function(require,module,exports){
+},{"./Base":5,"./Entry":6}],8:[function(require,module,exports){
 function DOMParser(options){
 	this.options = options ||{locator:{}};
 	
@@ -713,7 +722,7 @@ function appendElement (hander,node) {
 	exports.DOMParser = DOMParser;
 //}
 
-},{"./dom":8,"./sax":9}],8:[function(require,module,exports){
+},{"./dom":9,"./sax":10}],9:[function(require,module,exports){
 /*
  * DOM Level 2
  * Object DOMException
@@ -1959,7 +1968,7 @@ try{
 	exports.XMLSerializer = XMLSerializer;
 //}
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 //[4]   	NameStartChar	   ::=   	":" | [A-Z] | "_" | [a-z] | [#xC0-#xD6] | [#xD8-#xF6] | [#xF8-#x2FF] | [#x370-#x37D] | [#x37F-#x1FFF] | [#x200C-#x200D] | [#x2070-#x218F] | [#x2C00-#x2FEF] | [#x3001-#xD7FF] | [#xF900-#xFDCF] | [#xFDF0-#xFFFD] | [#x10000-#xEFFFF]
 //[4a]   	NameChar	   ::=   	NameStartChar | "-" | "." | [0-9] | #xB7 | [#x0300-#x036F] | [#x203F-#x2040]
 //[5]   	Name	   ::=   	NameStartChar (NameChar)*

@@ -2,8 +2,9 @@ import CAMT from 'camtts';
 import { AccountReport } from 'camtts/dist/types/AccountReport';
 import { Account } from 'camtts/dist/types/Report';
 import { Entry } from 'camtts/dist/types/Entry';
+import { Pecuniator, PecuniatorEntry, PecuniatorAccount } from './interface';
 
-class PAccount implements PecuniatorAccount {
+export class PAccount implements PecuniatorAccount {
 
     constructor(private account: Account) { }
 
@@ -12,7 +13,7 @@ class PAccount implements PecuniatorAccount {
     }
 }
 
-class PEntry implements PecuniatorEntry {
+export class PEntry implements PecuniatorEntry {
 
     constructor(private entry: Entry) {}
 
@@ -52,7 +53,7 @@ class PEntry implements PecuniatorEntry {
 /**
  * Main entry point of API
  */
-class PecuniAPI implements Pecuniator {
+export class PecuniAPI implements Pecuniator {
     reports: Array<AccountReport>;
 
     constructor() {
@@ -77,5 +78,3 @@ class PecuniAPI implements Pecuniator {
         return allEntries;
     }
 }
-
-export = PecuniAPI;

@@ -2,6 +2,7 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 const camtts_1 = __importDefault(require("camtts"));
 class PAccount {
     constructor(account) {
@@ -11,6 +12,7 @@ class PAccount {
         return this.account.currency;
     }
 }
+exports.PAccount = PAccount;
 class PEntry {
     constructor(entry) {
         this.entry = entry;
@@ -40,6 +42,7 @@ class PEntry {
         return this.entry.additionalEntryInfo;
     }
 }
+exports.PEntry = PEntry;
 /**
  * Main entry point of API
  */
@@ -61,4 +64,4 @@ class PecuniAPI {
         return allEntries;
     }
 }
-module.exports = PecuniAPI;
+exports.PecuniAPI = PecuniAPI;

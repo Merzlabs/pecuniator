@@ -26,4 +26,12 @@ interface Pecuniator {
      * These are the transactions
      */
     entries: Array<PecuniatorEntry>;
+
+    /**
+     * Do not use! Done automatically in the sandbox;
+     * @param files CachedFiles
+     */
+    load(files: any): void;
 }
+
+export {Pecuniator, PecuniatorEntry, PecuniatorAccount};

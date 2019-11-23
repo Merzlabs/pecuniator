@@ -1,37 +1,33 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const main_browser_1 = __importDefault(require("../main.browser"));
-const fs = __importStar(require("fs"));
-const path = __importStar(require("path"));
+import PecuniAPI from '../main.browser';
+
+import * as fs from 'fs';
+import * as path from 'path';
+import { PecuniatorEntry } from '../interface';
+
 describe('PecuniAPI', () => {
-    let camt;
-    let api;
-    let entries;
+    let camt: string;
+    let api: PecuniAPI;
+    let entries: Array<PecuniatorEntry>;
+
     beforeAll(() => {
         camt = fs.readFileSync(path.resolve(__dirname, 'test.xml'), 'utf-8');
-        api = new main_browser_1.default();
+        api = new PecuniAPI();
         api.load(camt);
     });
+
     it('parse should work', () => {
         expect(api.accounts).toBeDefined();
     });
+
     describe('api should have a entries', () => {
         beforeEach(() => {
             entries = api.entries;
         });
+
         it('Entries should exist all', () => {
             expect(entries.length).toEqual(3);
         });
+
         it('Entry[0] should be valid', () => {
             const entry = entries[0];
             expect(entry).toBeDefined();
@@ -41,6 +37,7 @@ describe('PecuniAPI', () => {
             expect(entry.creditordebit).toEqual('DBIT');
             expect(entry.bookingDate).toEqual('2019-11-08');
             expect(entry.additionalEntryInfo).toEqual('TRANSFER');
+
             // Transaction parties
             expect(entry.debitorIBAN).toEqual('DE86999999999999999999');
             expect(entry.creditorIBAN).toEqual('HR9123912345670329373');

@@ -8,13 +8,13 @@
     "url": "ssh://git@github.com/Merzlabs/pecuniator-app.git",
     "directory": "packages/api"
   },
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Public script API for Pecuniator project",
-  "main": "main.ts",
+  "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "scripts": {
     "test": "tsc && node node_modules/jasmine/bin/jasmine --config=jasmine.json",
-    "build": "tsc && browserify main.ts --s PecuniAPI -p [ tsify --noImplicitAny ] > ./dist/main.browser.js",
+    "build": "tsc && browserify main.browser.ts --s PecuniAPI -p [ tsify --noImplicitAny ] > ./dist/main.browser.js",
     "prepare": "npm run build"
   },
   "author": "Merzlabs",

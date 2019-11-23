@@ -1,12 +1,13 @@
 import { AccountReport } from 'camtts/dist/types/AccountReport';
 import { Account } from 'camtts/dist/types/Report';
 import { Entry } from 'camtts/dist/types/Entry';
-declare class PAccount implements PecuniatorAccount {
+import { Pecuniator, PecuniatorEntry, PecuniatorAccount } from './interface';
+export declare class PAccount implements PecuniatorAccount {
     private account;
     constructor(account: Account);
     get currency(): string | null | undefined;
 }
-declare class PEntry implements PecuniatorEntry {
+export declare class PEntry implements PecuniatorEntry {
     private entry;
     constructor(entry: Entry);
     get reference(): string | null | undefined;
@@ -21,11 +22,10 @@ declare class PEntry implements PecuniatorEntry {
 /**
  * Main entry point of API
  */
-declare class PecuniAPI implements Pecuniator {
+export declare class PecuniAPI implements Pecuniator {
     reports: Array<AccountReport>;
     constructor();
     load(data: string): void;
     get accounts(): PAccount[];
     get entries(): PEntry[];
 }
-export = PecuniAPI;
