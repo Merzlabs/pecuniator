@@ -21,7 +21,8 @@
     "serve": "cd pecuniator-api && npm run build && ionic serve",
     "prebuild": "cd pecuniator-api && npm run build",
     "build": "ng build --base-href ./ && npx cap copy",
-    "build:electron": "npm run build && cd electron && npm run electron:start"
+    "build:electron": "npm run build && cd electron && npm run electron:start",
+    "deploy:widgets": "firebase deploy --only hosting:pecuniator-widgets"
   },
   "dependencies": {
     "@angular/common": "~9.0.0-rc.1",
