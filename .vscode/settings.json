@@ -6,6 +6,5 @@
         "markdown",
         "latex",
         "plaintext"
-    ],
-    "typescript.tsdk": "pecuniator-api/node_modules/typescript/lib"
+    ]
 }
