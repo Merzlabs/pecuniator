@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "merzlabs-pecuniator"
+  },
+  "targets": {
+    "merzlabs-pecuniator": {
+      "hosting": {
+        "widgets": [
+          "pecuniator-widgets"
+        ],
+        "app": [
+          "merzlabs-pecuniator"
+        ]
+      }
+    }
   }
 }

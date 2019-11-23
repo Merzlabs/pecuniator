@@ -1,6 +1,24 @@
 {
-  "hosting": {
+  "hosting": [{
     "public": "www",
+    "taget": "app",
+    "site": "merzlabs-pecuniator",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  {
+    "public": "pecuniator-widgets/dist",
+    "taget": "widgets",
+    "site": "pecuniator-widgets",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -13,4 +31,5 @@
       }
     ]
   }
+  ]
 }
