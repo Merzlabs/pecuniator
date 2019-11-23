@@ -14,7 +14,7 @@ export namespace Components {
     /**
     * Files from app
     */
-    'allFiles': any;
+    'files': any;
   }
 }
 
@@ -36,7 +36,7 @@ declare namespace LocalJSX {
     /**
     * Files from app
     */
-    'allFiles'?: any;
+    'files'?: any;
   }
 
   interface IntrinsicElements {
