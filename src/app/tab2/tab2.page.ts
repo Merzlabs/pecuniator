@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FileCacheService, CachedFile } from '../services/file-cache.service';
 
 @Component({
   selector: 'app-tab2',
@@ -6,7 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  public allFiles: CachedFile[];
 
-  constructor() {}
+  constructor(private filecache: FileCacheService) { }
+
+  ionViewWillEnter() {
+    this.allFiles = [...this.filecache.getAll()];
+    console.debug(this.allFiles);
+  }
 
 }
