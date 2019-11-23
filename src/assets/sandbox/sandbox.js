@@ -6,8 +6,7 @@ try {
 
 onmessage = function(e) {
   const data = e.data;
-  this.console.log("sandbox", Pecuniator);
-  const api = new PecuniAPI()
+  const api = new PecuniAPI.default()
   
   const files = data.camtData;
   if (!files || files.length === 0) {
