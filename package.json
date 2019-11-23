@@ -19,7 +19,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "serve": "cd pecuniator-api && npm run build && ionic serve",
-    "prebuild": "cd pecuniator-api && npm run build",
+    "prebuild": "cd pecuniator-api && npm run build && cd pecuniator-widgets && npm run build",
     "build": "ng build --base-href ./ && npx cap copy",
     "build:electron": "npm run build && cd electron && npm run electron:start",
     "deploy:widgets": "firebase deploy --only hosting:pecuniator-widgets"
