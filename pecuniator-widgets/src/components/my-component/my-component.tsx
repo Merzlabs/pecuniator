@@ -9,26 +9,31 @@ import { Pecuniator } from '@merzlabs/pecuniator-api/interface';
 })
 export class MyComponent {
   public api: Pecuniator;
+  amount: number;
+  currency: string;
   /**
    * Files from app
    */
-  @Prop() allFiles: any;
+  @Prop() files: any;
 
-  private getText(): string {
-    this.api = new PecuniAPI();
-    for (const file of this.allFiles) {
-      this.api.load(file.content);
-    }
-
-    return JSON.stringify(this.api.entries[0].amount);
-  }
-
-  @Watch('allFiles')
-  watchHandler(newValue: boolean) {
+  @Watch('files')
+  watchHandler(newValue: Array<any>) {
     console.log('The new value of allFiles is: ', newValue);
+    if (typeof this.files !== 'undefined' && newValue.length > 0) {
+      this.api = new PecuniAPI();
+      for (const file of this.files) {
+        this.api.load(file.content);
+      }
+
+      this.amount = 0;
+      this.currency = this.api.accounts[0].currency;
+      for (const entry of this.api.entries) {
+        this.amount += Number(entry.amount);
+      }
+    }
   }
 
   render() {
-    return <div>Last transaction amount {this.getText()}</div>;
+  return <div>Total amount {this.amount} {this.currency}</div>;
   }
 }
