@@ -1,5 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
-import { format } from '../../utils/utils';
+import { Component, Prop, h, Watch } from '@stencil/core';
 
 @Component({
   tag: 'my-component',
@@ -8,22 +7,17 @@ import { format } from '../../utils/utils';
 })
 export class MyComponent {
   /**
-   * The first name
+   * Files from app
    */
-  @Prop() first: string;
-
-  /**
-   * The middle name
-   */
-  @Prop() middle: string;
-
-  /**
-   * The last name
-   */
-  @Prop() last: string;
+  @Prop() allFiles: any;
 
   private getText(): string {
-    return format(this.first, this.middle, this.last);
+    return JSON.stringify(this.allFiles);
+  }
+
+  @Watch('allFiles')
+  watchHandler(newValue: boolean, oldValue: boolean) {
+    console.log('The new value of allFiles is: ', newValue);
   }
 
   render() {

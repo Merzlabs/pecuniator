@@ -13,14 +13,7 @@
         "source": "**",
         "destination": "/index.html"
       }
-    ],
-    "headers": [ {
-      "source": "**",
-      "headers": [ {
-        "key": "Access-Control-Allow-Origin",
-        "value": "*"
-      } ]
-    }]
+    ]
   },
   {
     "public": "pecuniator-widgets/dist",
@@ -41,7 +34,7 @@
       "source": "**",
       "headers": [ {
         "key": "Access-Control-Allow-Origin",
-        "value": "*"
+        "value": "https://merzlabs-pecuniator.web.app"
       } ]
     }]
   }
