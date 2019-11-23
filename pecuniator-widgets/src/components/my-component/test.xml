@@ -1,11 +1,4 @@
-import { newE2EPage } from '@stencil/core/testing';
-
-describe('my-component', () => {
-  let files;
-  beforeAll(() => {
-    files = [{
-      name: 'test.xml',
-      content: `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02" 
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02 camt.052.001.02.xsd">
     <BkToCstmrAcctRpt>
         <GrpHdr>
@@ -221,28 +214,4 @@ describe('my-component', () => {
             </Ntry>
         </Rpt>
     </BkToCstmrAcctRpt>
-</Document>`
-    }];
-  });
-
-  it('renders', async () => {
-    const page = await newE2EPage();
-
-    await page.setContent('<my-component></my-component>');
-    const element = await page.find('my-component');
-    expect(element).toHaveClass('hydrated');
-  });
-
-  it('renders changes to the files data', async () => {
-    const page = await newE2EPage();
-
-    await page.setContent('<my-component></my-component>');
-    const component = await page.find('my-component');
-    const element = await page.find('my-component >>> div');
-    expect(element.textContent).toEqual(`Total amount  `);
-
-    component.setProperty('files', files);
-    await page.waitForChanges();
-    expect(element.textContent).toEqual(`Total amount 12.059999999999999 EUR`);
-  });
-});
+</Document>
