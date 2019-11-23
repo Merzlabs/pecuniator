@@ -52,3 +52,7 @@ There are some ideas with their own challenges and work needed. In no particular
 ### Running the electron app
 
 Clone this repository, run `npm install` and run this script `npm run build:electron`.
+
+## Package management
+
+This repository is currently the home of many related packages for pecuniator app. See [Github packages for an overview](https://github.com/Merzlabs/pecuniator-app/packages). Because everything is in development all packages are hard wired in this repo and updated on Github infrequently. Once the API is more stable packages with realy versions and imports will be used and certain components of this app will be hosted differently.
