@@ -1,4 +1,4 @@
-import { Component, Prop, h, Watch } from '@stencil/core';
+import { Component, Prop, h, Watch, Method, State } from '@stencil/core';
 import { PecuniAPI } from '@merzlabs/pecuniator-api';
 import { Pecuniator } from '@merzlabs/pecuniator-api/interface';
 
@@ -8,24 +8,21 @@ import { Pecuniator } from '@merzlabs/pecuniator-api/interface';
   shadow: true
 })
 export class MyComponent {
-  public api: Pecuniator;
-  amount: number;
-  currency: string;
   /**
-   * Files from app
+   * Always passed from main app
    */
-  @Prop() files: any;
+  @Prop() api: Pecuniator;
 
-  @Watch('files')
-  watchHandler(newValue: Array<any>) {
-    console.log('The new value of allFiles is: ', newValue);
-    if (typeof this.files !== 'undefined' && newValue.length > 0) {
-      this.api = new PecuniAPI();
-      for (const file of this.files) {
-        this.api.load(file.content);
-      }
+  @State() amount: number;
+  @State() currency: string;
 
-      this.amount = 0;
+  /**
+   * Is called on entering dashboard page
+   */
+  @Method()
+  async refresh() {
+    this.amount = 0;
+    if (this.api && this.api.entries && this.api.entries.length > 0) {
       this.currency = this.api.accounts[0].currency;
       for (const entry of this.api.entries) {
         this.amount += Number(entry.amount);
@@ -34,6 +31,6 @@ export class MyComponent {
   }
 
   render() {
-  return <div>Total amount {this.amount} {this.currency}</div>;
+    return <div>Total amount {this.amount} {this.currency}</div>;
   }
 }

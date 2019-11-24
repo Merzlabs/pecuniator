@@ -1,11 +1,11 @@
 import { newE2EPage } from '@stencil/core/testing';
+import { PecuniAPI } from '@merzlabs/pecuniator-api';
+import { Pecuniator } from '@merzlabs/pecuniator-api/dist/interface';
 
 describe('my-component', () => {
-  let files;
+  let api: Pecuniator;
   beforeAll(() => {
-    files = [{
-      name: 'test.xml',
-      content: `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02" 
+    const xml = `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02 camt.052.001.02.xsd">
     <BkToCstmrAcctRpt>
         <GrpHdr>
@@ -221,11 +221,13 @@ describe('my-component', () => {
             </Ntry>
         </Rpt>
     </BkToCstmrAcctRpt>
-</Document>`
-    }];
+</Document>`;
+
+    api = new PecuniAPI();
+    api.load(xml);
   });
 
-  it('renders', async () => {
+  it('renders with default', async () => {
     const page = await newE2EPage();
 
     await page.setContent('<my-component></my-component>');
@@ -233,7 +235,7 @@ describe('my-component', () => {
     expect(element).toHaveClass('hydrated');
   });
 
-  it('renders changes to the files data', async () => {
+  it('renders changes with refresh', async () => {
     const page = await newE2EPage();
 
     await page.setContent('<my-component></my-component>');
@@ -241,7 +243,14 @@ describe('my-component', () => {
     const element = await page.find('my-component >>> div');
     expect(element.textContent).toEqual(`Total amount  `);
 
-    component.setProperty('files', files);
+    // Use fake api object because real one crashes jest with circular json because of DOM objects
+    const amount = 12.059999999999999;
+    const dummy = {
+        accounts: [{currency: api.accounts[0].currency}],
+        entries: [{amount}]
+    };
+    component.setProperty('api', dummy);
+    component.callMethod('refresh');
     await page.waitForChanges();
     expect(element.textContent).toEqual(`Total amount 12.059999999999999 EUR`);
   });

@@ -15,7 +15,8 @@
   "scripts": {
     "test": "tsc && node node_modules/jasmine/bin/jasmine --config=jasmine.json",
     "build": "tsc && browserify main.browser.ts --s PecuniAPI -p [ tsify --noImplicitAny ] > ./dist/main.browser.js",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by NGCC. This is not allowed.\\nPlease delete and rebuild the package, without compiling with NGCC, before attempting to publish.\\nNote that NGCC may have been run by importing this package into another project that is being built with Ivy enabled.\\n')\" && exit 1"
   },
   "author": "Merzlabs",
   "license": "MIT",
@@ -35,5 +36,14 @@
     "@types/node": "^12.12.8",
     "jasmine": "^3.5.0",
     "nyc": "^14.1.1"
+  },
+  "__processed_by_ivy_ngcc__": {
+    "fesm2015": "9.0.0-rc.1",
+    "fesm5": "9.0.0-rc.1",
+    "es2015": "9.0.0-rc.1",
+    "esm2015": "9.0.0-rc.1",
+    "esm5": "9.0.0-rc.1",
+    "main": "9.0.0-rc.1",
+    "module": "9.0.0-rc.1"
   }
 }
