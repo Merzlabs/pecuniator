@@ -1,5 +1,4 @@
-import { Component, Prop, h, Watch, Method, State } from '@stencil/core';
-import { PecuniAPI } from '@merzlabs/pecuniator-api';
+import { Component, Prop, h, Method, State } from '@stencil/core';
 import { Pecuniator } from '@merzlabs/pecuniator-api/interface';
 
 @Component({
