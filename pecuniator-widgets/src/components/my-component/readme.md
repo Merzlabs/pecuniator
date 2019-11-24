@@ -8,9 +8,9 @@ First example widget
 
 ## Properties
 
-| Property | Attribute | Description                 | Type         | Default     |
-| -------- | --------- | --------------------------- | ------------ | ----------- |
-| `api`    | --        | Always passed from main app | `Pecuniator` | `undefined` |
+| Property | Attribute | Description                 | Type        | Default     |
+| -------- | --------- | --------------------------- | ----------- | ----------- |
+| `api`    | --        | Always passed from main app | `PecuniAPI` | `undefined` |
 
 
 ## Methods
