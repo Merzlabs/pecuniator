@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FileCacheService, CachedFile } from '../services/file-cache.service';
+import { PecuniAPI } from 'pecuniator-api/main';
 
 @Component({
   selector: 'app-tab2',
@@ -7,13 +8,22 @@ import { FileCacheService, CachedFile } from '../services/file-cache.service';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-  public allFiles: CachedFile[];
+  private files: CachedFile[];
+  api: PecuniAPI;
+  @ViewChild('comp') mycomponent: any;
 
-  constructor(private filecache: FileCacheService) { }
+  constructor(private filecache: FileCacheService) {
+    this.api = new PecuniAPI();
+   }
 
   ionViewWillEnter() {
-    this.allFiles = [...this.filecache.getAll()];
-    console.debug(this.allFiles);
+    this.files = this.filecache.getAll();
+    if (typeof this.files !== 'undefined' && this.files.length > 0) {
+      for (const file of this.files) {
+        this.api.load(file.content);
+      }
+    }
+    this.mycomponent.nativeElement.refresh();
   }
 
 }

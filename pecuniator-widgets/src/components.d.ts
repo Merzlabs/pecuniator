@@ -7,14 +7,20 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-
+import {
+  Pecuniator,
+} from '@merzlabs/pecuniator-api/interface';
 
 export namespace Components {
   interface MyComponent {
     /**
-    * Files from app
+    * Always passed from main app
     */
-    'files': any;
+    'api': Pecuniator;
+    /**
+    * Is called on entering dashboard page
+    */
+    'refresh': () => Promise<void>;
   }
 }
 
@@ -34,9 +40,9 @@ declare global {
 declare namespace LocalJSX {
   interface MyComponent {
     /**
-    * Files from app
+    * Always passed from main app
     */
-    'files'?: any;
+    'api'?: Pecuniator;
   }
 
   interface IntrinsicElements {
