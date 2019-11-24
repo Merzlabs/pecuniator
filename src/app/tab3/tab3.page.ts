@@ -57,7 +57,7 @@ export class Tab3Page implements OnInit, OnDestroy {
     }
 
     onInit(editor) {
-        this.runBinding = editor.addCommand(monaco.KeyCode.F5, () => {
+        this.runBinding = editor.addCommand(monaco.KeyCode.F2, () => {
             this.parseExample();
         });
     }
