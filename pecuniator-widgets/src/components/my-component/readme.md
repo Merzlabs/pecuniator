@@ -1,5 +1,6 @@
 # my-component
 
+First example widget
 
 
 <!-- Auto Generated Below -->
@@ -7,9 +8,22 @@
 
 ## Properties
 
-| Property | Attribute | Description    | Type  | Default     |
-| -------- | --------- | -------------- | ----- | ----------- |
-| `files`  | `files`   | Files from app | `any` | `undefined` |
+| Property | Attribute | Description                 | Type         | Default     |
+| -------- | --------- | --------------------------- | ------------ | ----------- |
+| `api`    | --        | Always passed from main app | `Pecuniator` | `undefined` |
+
+
+## Methods
+
+### `refresh() => Promise<void>`
+
+Is called on entering dashboard page
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ----------------------------------------------
