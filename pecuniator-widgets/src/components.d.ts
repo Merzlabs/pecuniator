@@ -8,15 +8,15 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
-  Pecuniator,
-} from '@merzlabs/pecuniator-api/interface';
+  PecuniAPI,
+} from '@merzlabs/pecuniator-api';
 
 export namespace Components {
   interface MyComponent {
     /**
     * Always passed from main app
     */
-    'api': Pecuniator;
+    'api': PecuniAPI;
     /**
     * Is called on entering dashboard page
     */
@@ -42,7 +42,7 @@ declare namespace LocalJSX {
     /**
     * Always passed from main app
     */
-    'api'?: Pecuniator;
+    'api'?: PecuniAPI;
   }
 
   interface IntrinsicElements {

@@ -64,6 +64,10 @@ export class PecuniAPI implements Pecuniator {
         this.reports.push(CAMT.parse(data));
     }
 
+    clear() {
+        this.reports = [];
+    }
+
     get accounts() {
         return this.reports.map((elem) => new PAccount(elem.report.account));
     }

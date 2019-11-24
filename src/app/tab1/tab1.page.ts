@@ -7,8 +7,11 @@ import { FileCacheService, CachedFile } from '../services/file-cache.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  fileNames: string[];
 
-  constructor(private filecache: FileCacheService) {}
+  constructor(private filecache: FileCacheService) {
+    this.fileNames = [];
+  }
 
 
   handleFileInput(files: FileList) {
@@ -24,10 +27,20 @@ export class Tab1Page {
     }
   }
 
+  ionViewDidEnter() {
+    this.fileNames = this.filecache.getFileNames();
+  }
+
+  clearCache() {
+    this.filecache.deleteAll();
+    this.fileNames = [];
+  }
+
   private processXML(file: File) {
     const xmlReader = new FileReader();
     xmlReader.onload = (e: any) => {
       const xmlContent = e.target.result;
+      this.fileNames.push(file.name);
       this.filecache.add(new CachedFile(file.name, xmlContent));
     };
     xmlReader.readAsText(file);

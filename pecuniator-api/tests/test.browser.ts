@@ -9,7 +9,7 @@ describe('PecuniAPI', () => {
     let api: PecuniAPI;
     let entries: Array<PecuniatorEntry>;
 
-    beforeAll(() => {
+    beforeEach(() => {
         camt = fs.readFileSync(path.resolve(__dirname, 'test.xml'), 'utf-8');
         api = new PecuniAPI();
         api.load(camt);
@@ -17,6 +17,11 @@ describe('PecuniAPI', () => {
 
     it('parse should work', () => {
         expect(api.accounts).toBeDefined();
+    });
+
+    it('clear should work', () => {
+        api.clear();
+        expect(api.accounts.length).toEqual(0);
     });
 
     describe('api should have a entries', () => {

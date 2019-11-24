@@ -14,9 +14,11 @@ export class Tab2Page {
 
   constructor(private filecache: FileCacheService) {
     this.api = new PecuniAPI();
-   }
+  }
 
   ionViewWillEnter() {
+    // Reset api instance of this page from files in cache every time
+    this.api.clear();
     this.files = this.filecache.getAll();
     if (typeof this.files !== 'undefined' && this.files.length > 0) {
       for (const file of this.files) {

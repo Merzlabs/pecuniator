@@ -22,4 +22,14 @@
       <ion-label>Add files</ion-label>
       <input type="file" multiple id="camtfiles" (change)="handleFileInput($event.target.files)">
     </ion-item>
+    
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Loaded files</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button fill="outline" slot="end" type="button" (click)="clearCache()">Clear all</ion-button>
+        <ion-item *ngFor="let filename of fileNames">{{filename}}</ion-item>
+      </ion-card-content>
+    </ion-card>
 </ion-content>

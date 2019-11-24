@@ -1,5 +1,5 @@
 import { Component, Prop, h, Method, State } from '@stencil/core';
-import { Pecuniator } from '@merzlabs/pecuniator-api/interface';
+import { PecuniAPI } from '@merzlabs/pecuniator-api';
 
 @Component({
   tag: 'my-component',
@@ -10,7 +10,7 @@ export class MyComponent {
   /**
    * Always passed from main app
    */
-  @Prop() api: Pecuniator;
+  @Prop() api: PecuniAPI;
 
   @State() amount: number;
   @State() currency: string;

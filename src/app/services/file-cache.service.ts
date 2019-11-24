@@ -22,4 +22,12 @@ export class FileCacheService {
     return this.files;
   }
 
+  getFileNames() {
+    return this.files.map((elem) => elem.name);
+  }
+
+  deleteAll() {
+    this.files = [];
+  }
+
 }
