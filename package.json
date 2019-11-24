@@ -8,7 +8,7 @@
     "url": "ssh://git@github.com/Merzlabs/pecuniator-app.git",
     "directory": "packages/app"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Merzlabs",
   "homepage": "https://ionicframework.com/",
   "scripts": {
@@ -70,5 +70,5 @@
     "tslint": "~5.15.0",
     "typescript": "~3.6.4"
   },
-  "description": "Pecuniator App"
+  "description": "Main app of Pecuniator Project"
 }

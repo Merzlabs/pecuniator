@@ -8,8 +8,8 @@
     "url": "ssh://git@github.com/Merzlabs/pecuniator-app.git",
     "directory": "packages/electron"
   },
-  "version": "0.0.1",
-  "description": "Electron app of Pecuniator project",
+  "version": "0.0.2",
+  "description": "Electron wrapper (by capacitor) for pecuniator-app",
   "main": "index.js",
   "scripts": {
     "electron:start": "electron ./"
