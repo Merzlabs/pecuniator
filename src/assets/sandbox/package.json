@@ -8,7 +8,7 @@
     "url": "ssh://git@github.com/Merzlabs/pecuniator-app.git",
     "directory": "packages/sandbox"
   },
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Webworker environment for pecuniator scripts",
   "main": "sandbox.js",
   "scripts": {
