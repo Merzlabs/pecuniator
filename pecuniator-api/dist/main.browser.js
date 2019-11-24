@@ -60,6 +60,9 @@ class PecuniAPI {
     load(data) {
         this.reports.push(camtts_1.default.parse(data));
     }
+    clear() {
+        this.reports = [];
+    }
     get accounts() {
         return this.reports.map((elem) => new PAccount(elem.report.account));
     }

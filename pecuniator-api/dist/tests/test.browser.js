@@ -17,13 +17,17 @@ describe('PecuniAPI', () => {
     let camt;
     let api;
     let entries;
-    beforeAll(() => {
+    beforeEach(() => {
         camt = fs.readFileSync(path.resolve(__dirname, 'test.xml'), 'utf-8');
         api = new main_browser_1.default();
         api.load(camt);
     });
     it('parse should work', () => {
         expect(api.accounts).toBeDefined();
+    });
+    it('clear should work', () => {
+        api.clear();
+        expect(api.accounts.length).toEqual(0);
     });
     describe('api should have a entries', () => {
         beforeEach(() => {

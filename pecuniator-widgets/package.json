@@ -39,6 +39,6 @@
     "puppeteer": "1.20.0"
   },
   "dependencies": {
-    "@merzlabs/pecuniator-api": "0.0.4"
+    "@merzlabs/pecuniator-api": "0.0.5"
   }
 }

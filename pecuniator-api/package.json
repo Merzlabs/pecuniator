@@ -8,15 +8,14 @@
     "url": "ssh://git@github.com/Merzlabs/pecuniator-app.git",
     "directory": "packages/api"
   },
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Public script API for Pecuniator project",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "scripts": {
     "test": "tsc && node node_modules/jasmine/bin/jasmine --config=jasmine.json",
-    "build": "tsc && browserify main.browser.ts --s PecuniAPI -p [ tsify --noImplicitAny ] > ./dist/main.browser.js",
-    "prepare": "npm run build",
-    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by NGCC. This is not allowed.\\nPlease delete and rebuild the package, without compiling with NGCC, before attempting to publish.\\nNote that NGCC may have been run by importing this package into another project that is being built with Ivy enabled.\\n')\" && exit 1"
+    "build": "npx tsc && browserify main.browser.ts --s PecuniAPI -p [ tsify --noImplicitAny ] > ./dist/main.browser.js",
+    "prepare": "npm run build"
   },
   "author": "Merzlabs",
   "license": "MIT",
