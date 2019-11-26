@@ -1,9 +1,8 @@
 import { newE2EPage } from '@stencil/core/testing';
 import { PecuniAPI } from '@merzlabs/pecuniator-api';
-import { Pecuniator } from '@merzlabs/pecuniator-api/dist/interface';
 
 describe('my-component', () => {
-  let api: Pecuniator;
+  let api: PecuniAPI;
   beforeAll(() => {
     const xml = `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02 camt.052.001.02.xsd">
@@ -246,8 +245,8 @@ describe('my-component', () => {
     // Use fake api object because real one crashes jest with circular json because of DOM objects
     const amount = 12.059999999999999;
     const dummy = {
-        accounts: [{currency: api.accounts[0].currency}],
-        entries: [{amount}]
+      accounts: [{ currency: api.accounts[0].currency }],
+      entries: [{ amount }]
     };
     component.setProperty('api', dummy);
     component.callMethod('refresh');
