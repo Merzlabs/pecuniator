@@ -8,6 +8,7 @@ import { FileCacheService, CachedFile } from '../services/file-cache.service';
 export class Tab3Page implements OnInit, OnDestroy {
     readonly stringToParse: string;
     text: string;
+    error: string;
     editorOptions = { theme: 'vs-dark', language: 'javascript' };
     code = '';
     worker: Worker;
@@ -28,7 +29,7 @@ export class Tab3Page implements OnInit, OnDestroy {
 
         this.worker = new Worker('assets/sandbox/sandbox.js');
         this.worker.onmessage = ((ev: MessageEvent) => {
-            this.text = ev.data;
+            this.handleMessage(ev);
         });
 
 
@@ -48,12 +49,21 @@ export class Tab3Page implements OnInit, OnDestroy {
             // Create new worker with no user code and data
             this.worker = new Worker('assets/sandbox/sandbox.js');
             this.worker.onmessage = ((ev: MessageEvent) => {
-                this.text = ev.data;
+                this.handleMessage(ev);
             });
 
             // tslint:disable-next-line: no-console
             console.info('Worker terminated');
         }, 60000);
+    }
+
+    private handleMessage(ev: MessageEvent) {
+        if (ev.data.textAppend) {
+            this.text += ev.data.textAppend;
+        } else {
+            this.text = ev.data.text;
+            this.error = ev.data.error;
+        }
     }
 
     onInit(editor) {

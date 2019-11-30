@@ -10,7 +10,7 @@ onmessage = function(e) {
   
   const files = data.camtData;
   if (!files || files.length === 0) {
-    this.postMessage('Error: No files!')
+    this.postMessage({ error: 'Error: No files!'})
     return;
   }
 
@@ -22,6 +22,6 @@ onmessage = function(e) {
     eval(data.script);
   } catch (e) {
     this.console.error('Sandbox error', e);
-    this.postMessage('Error: ' + e.toString());
+    this.postMessage({ error: e.toString()});
   }
 }

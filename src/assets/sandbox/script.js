@@ -6,4 +6,11 @@ const acc = pecuniator.accounts[0];
 
 this.console.info('Script', acc.currency);
 const firstTransaction = pecuniator.entries[0];
-this.postMessage(firstTransaction.amount + firstTransaction.currency + ' from ' + firstTransaction.creditorIBAN);
+
+if (!firstTransaction) {
+    this.postMessage({ error: 'No transaction' })
+} else {
+    this.postMessage({ text: firstTransaction.amount + firstTransaction.currency + ' from ' + firstTransaction.creditorIBAN });
+}
+
+this.postMessage({ textAppend: '.' });

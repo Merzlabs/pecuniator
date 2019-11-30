@@ -11,12 +11,21 @@
     <ngx-monaco-editor style="height: 100%" (onInit)="onInit($event)" [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
   </div>
 
-  <ion-card *ngIf="text">
+  <ion-card *ngIf="text && !error">
     <ion-card-title>
       Response
     </ion-card-title>
     <ion-card-content>
       {{text}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="error" style="color: red;">
+    <ion-card-title>
+      Script Error
+    </ion-card-title>
+    <ion-card-content>
+      {{error}}
     </ion-card-content>
   </ion-card>
 
