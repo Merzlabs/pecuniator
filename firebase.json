@@ -34,7 +34,7 @@
       "source": "**",
       "headers": [ {
         "key": "Access-Control-Allow-Origin",
-        "value": "https://merzlabs-pecuniator.web.app"
+        "value": "https://web.pecuniator.com"
       } ]
     }]
   }
