@@ -19,17 +19,28 @@
     </ion-card>
 
     <ion-item>
-      <ion-label>Add files</ion-label>
+      <ion-label>Add CAMT files</ion-label>
       <input type="file" multiple id="camtfiles" (change)="handleFileInput($event.target.files)">
     </ion-item>
     
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Loaded files</ion-card-title>
+        <ion-card-title>Current files</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <ion-button fill="outline" slot="end" type="button" (click)="clearCache()">Clear all</ion-button>
         <ion-item *ngFor="let filename of fileNames">{{filename}}</ion-item>
       </ion-card-content>
     </ion-card>
+
+    <ion-list>
+      <ion-item routerLink="/tabs/tab3" detail="true">
+        <ion-label>Start scripting</ion-label>
+        <ion-icon slot="start" name="code"></ion-icon>
+      </ion-item>
+      <ion-item routerLink="/tabs/tab2" detail="true">
+        <ion-label>Show overview</ion-label>
+        <ion-icon slot="start" name="apps"></ion-icon>
+      </ion-item>
+    </ion-list>
 </ion-content>
