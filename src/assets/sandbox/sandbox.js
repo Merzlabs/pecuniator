@@ -4,6 +4,21 @@ try {
   console.error('Import failed', e);
 }
 
+//Block XHR, fetch, importScripts in sandbox
+(function () {
+  XMLHttpRequest.prototype.open = () => {
+    throw new Error("XHR not allowed");
+  };
+
+  fetch = async () => {
+    throw new Error("fetch not allowed");
+  };
+
+  importScripts = () => {
+    throw new Error("Imports not allowed");
+  };
+}) ();
+
 onmessage = function(e) {
   const data = e.data;
   const api = new PecuniAPI.default()
