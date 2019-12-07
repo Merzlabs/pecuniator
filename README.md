@@ -1,29 +1,12 @@
 # Pecuniator App
 
+![logo](/cover.png "Pecuniator Logo")
+
 > Pecuniator is project that wants to improve access to financial data for you.
 
 Pecuniator App is a work in progress tool which let's you analyze your financial data like you want to. It's basically a data sandbox. Pecuniator wants to become a privacy focused way of looking at your bank transactions and Pecuniator app is one part of the project.
 
 The core of Pecuniator App is to provide a sandbox with imported financial data and a programming API, that lets you work with that data.
-
-Just a quick example:
-
-```javascript
-var budget = new Budget({name: "My car budget", interval: "yearly"});
-const accountQuery = new AccountQuery();
-accountQuery.iban.equals("MYGIROIBAN");
-const account = Accounts.query(accountQuery);
-
-const insuranceQuery = new TransactionsQuery();
-insuranceQuery.subject.contains("Insurance Payment Car");
-//insuranceQuery.subject.regex(..
-insuranceQuery.iban.equals("DE....");
-
-const insuranceTransactions = account.query(insuranceQuery);
-budget.add("Insurance", insuranceTransactions);
-
-console.log(budgte.name, budget.summary());
-```
 
 ### MVP
 
@@ -31,8 +14,8 @@ We want to start the Pecuniator journey with a minimum viable product that is Pe
 
 * No customer data on external servers. Everything is local
 * Import CAMT transaction data
-* Write a basic synchronous API with objects (and typings) to access data
-* (Monaco editor for building scripts)
+* Write a basic synchronous API with objects and typings to access data
+* Monaco (VSCode like) editor for building scripts
 
 ### Planned features
 
