@@ -8,7 +8,7 @@ jobs:
   greeting:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/first-interaction@v1
+    - uses: niklasmerz/first-interaction@master
       if: github.event.pull_request.merged == true
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
