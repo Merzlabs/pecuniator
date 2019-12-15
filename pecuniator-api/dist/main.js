@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const camtts_1 = __importDefault(require("camtts"));
+// This is the implementation of the interface with use of the CAMT parser
 class PAccount {
     constructor(account) {
         this.account = account;

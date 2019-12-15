@@ -5,8 +5,8 @@
   "targets": {
     "merzlabs-pecuniator": {
       "hosting": {
-        "widgets": [
-          "pecuniator-widgets"
+        "docs": [
+          "pecuniator-docs"
         ],
         "app": [
           "merzlabs-pecuniator"

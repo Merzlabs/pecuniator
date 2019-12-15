@@ -4,6 +4,8 @@ import { Account } from 'camtts/dist/types/Report';
 import { Entry } from 'camtts/dist/types/Entry';
 import { Pecuniator, PecuniatorEntry, PecuniatorAccount } from './interface';
 
+// This is the implementation of the interface with use of the CAMT parser
+
 export class PAccount implements PecuniatorAccount {
 
     constructor(private account: Account) { }

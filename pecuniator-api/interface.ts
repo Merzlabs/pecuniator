@@ -3,7 +3,7 @@
 
 interface PecuniatorAccount {
     /**
-     * Accounts currency
+     * Accounts currency short name like (EUR)
      */
     currency: string|null|undefined;
 }
@@ -15,15 +15,21 @@ interface PecuniatorEntry {
     bookingDate: string | null | undefined;
     debitorIBAN: string | null | undefined;
     creditorIBAN: string | null | undefined;
+    /**
+     * Currency short name (like EUR)
+     */
     currency: string | null | undefined;
     additionalEntryInfo: string | null | undefined;
 }
 
 interface Pecuniator {
+    /**
+     * Array with all accounts from all imported files
+     */
     accounts: Array<PecuniatorAccount>;
 
     /**
-     * These are the transactions
+     * These are the transactions from all imported files
      */
     entries: Array<PecuniatorEntry>;
 }

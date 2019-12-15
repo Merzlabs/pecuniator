@@ -14,5 +14,26 @@
         "destination": "/index.html"
       }
     ]
-  }]
+  },
+  {
+    "public": "pecuniator-api/docs",
+    "taget": "widgets",
+    "site": "pecuniator-docs",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "index.html",
+        "destination": "/modules/_interface_.html"
+      },
+      {
+        "source": "**",
+        "destination": "/modules/_interface_.html"
+      }
+    ]
+  }
+  ]
 }
