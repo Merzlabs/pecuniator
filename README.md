@@ -38,4 +38,4 @@ Clone this repository, run `npm install` and run this script `npm run build:elec
 
 ## Package management
 
-This repository is currently the home of many related packages for pecuniator app. See [Github packages for an overview](https://github.com/Merzlabs/pecuniator-app/packages). Because everything is in development all packages are hard wired in this repo and updated on Github infrequently. Once the API is more stable packages with realy versions and imports will be used and certain components of this app will be hosted differently.
+This repository is currently the home of many related packages for pecuniator app. See [Github packages for an overview](https://github.com/orgs/Merzlabs/packages). Because everything is in development all packages are hard wired in this repo and updated on Github infrequently. Once the API is more stable packages with realy versions and imports will be used and certain components of this app will be hosted differently.
