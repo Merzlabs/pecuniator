@@ -41,7 +41,8 @@ export class Tab3Page implements OnInit, OnDestroy {
         });
     }
 
-    parseExample() {
+    runScript() {
+        this.text = '';
         this.worker.postMessage({ script: this.code, camtData: this.files });
         setTimeout(async () => {
             this.worker.terminate();
