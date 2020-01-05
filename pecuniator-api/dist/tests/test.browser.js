@@ -48,6 +48,12 @@ describe('PecuniAPI', () => {
             // Transaction parties
             expect(entry.debitorIBAN).toEqual('DE86999999999999999999');
             expect(entry.creditorIBAN).toEqual('HR9123912345670329373');
+            expect(entry.creditorName).toEqual('Creditor Name');
+            expect(entry.creditorUltimateName).toEqual('Ultimate Creditor Name');
+            expect(entry.debtorName).toEqual('Debtor Name');
+            expect(entry.debtorUltimateName).toEqual('Ultimate Debtor Name');
+            // Verwendungszweck
+            expect(entry.remittanceInformation).toEqual(['COUNT        1']);
         });
     });
 });

@@ -39,8 +39,24 @@ export class PEntry implements PecuniatorEntry {
         return this.entry.entryDetails.transactionDetails.relatedParties.creditorAccount.id.iban;
     }
 
+    get creditorName() {
+        return this.entry.entryDetails.transactionDetails.relatedParties.creditor.name;
+    }
+
+    get creditorUltimateName() {
+        return this.entry.entryDetails.transactionDetails.relatedParties.ultimateCreditor.name;
+    }
+
     get debitorIBAN() {
         return this.entry.entryDetails.transactionDetails.relatedParties.debitorAccount.id.iban;
+    }
+
+    get debtorName() {
+        return this.entry.entryDetails.transactionDetails.relatedParties.debtor.name;
+    }
+
+    get debtorUltimateName() {
+        return this.entry.entryDetails.transactionDetails.relatedParties.ultimateDebtor.name;
     }
 
     get creditordebit() {
@@ -49,6 +65,10 @@ export class PEntry implements PecuniatorEntry {
 
     get additionalEntryInfo() {
         return this.entry.additionalEntryInfo;
+    }
+
+    get remittanceInformation() {
+        return this.entry.entryDetails.remittanceInformation.unstructured as string[];
     }
 }
 

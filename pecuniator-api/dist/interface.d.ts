@@ -9,13 +9,33 @@ interface PecuniatorEntry {
     amount: string | null | undefined;
     creditordebit: string | null | undefined;
     bookingDate: string | null | undefined;
-    debitorIBAN: string | null | undefined;
     creditorIBAN: string | null | undefined;
+    /**
+     * Party to which amount of money is due / Einreicher der Lastschrift
+     */
+    creditorName: string | null | undefined;
+    /**
+     * Ultimate party to which an amount of money is due. / Konto des Lastschrifteinreichers
+     */
+    creditorUltimateName: string | null | undefined;
+    debitorIBAN: string | null | undefined;
+    /**
+     * Debtor / Zahler
+     */
+    debtorName: string | null | undefined;
+    /**
+     * Ultimate debitor different from creditor / Abweichender Zahler
+     */
+    debtorUltimateName: string | null | undefined;
     /**
      * Currency short name (like EUR)
      */
     currency: string | null | undefined;
     additionalEntryInfo: string | null | undefined;
+    /**
+     * Subject / Verwendungszweck
+     */
+    remittanceInformation: string[] | null | undefined;
 }
 interface Pecuniator {
     /**

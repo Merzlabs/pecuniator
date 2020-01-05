@@ -15,9 +15,14 @@ export declare class PEntry implements PecuniatorEntry {
     get currency(): string | null | undefined;
     get bookingDate(): string | null | undefined;
     get creditorIBAN(): string | null | undefined;
+    get creditorName(): string | null | undefined;
+    get creditorUltimateName(): string | null | undefined;
     get debitorIBAN(): string | null | undefined;
+    get debtorName(): string | null | undefined;
+    get debtorUltimateName(): string | null | undefined;
     get creditordebit(): string | null | undefined;
     get additionalEntryInfo(): string | null | undefined;
+    get remittanceInformation(): string[];
 }
 /**
  * Main entry point of API

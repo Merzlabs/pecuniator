@@ -76,16 +76,28 @@
                             </Prtry>
                         </BkTxCd>
                         <RltdPties>
+                            <Dbtr>
+                                <Nm>Debtor Name</Nm>
+                            </Dbtr>
                             <DbtrAcct>
                                 <Id>
                                     <IBAN>DE86999999999999999999</IBAN>
                                 </Id>
                             </DbtrAcct>
+                            <UltmtDbtr>
+                                <Nm>Ultimate Debtor Name</Nm>
+                            </UltmtDbtr>
+                            <Cdtr>
+                                <Nm>Creditor Name</Nm>
+                            </Cdtr>
                             <CdtrAcct>
                                 <Id>
                                     <IBAN>HR9123912345670329373</IBAN>
                                 </Id>
                             </CdtrAcct>
+                            <UltmtCdtr>
+                                <Nm>Ultimate Creditor Name</Nm>
+                            </UltmtCdtr>
                         </RltdPties>
                         <RltdAgts>
                             <DbtrAgt>
