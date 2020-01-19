@@ -7,10 +7,10 @@ import { FileCacheService, CachedFile } from '../services/file-cache.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  fileNames: string[];
+  fileNames: string;
 
   constructor(private filecache: FileCacheService) {
-    this.fileNames = [];
+    this.fileNames = '';
   }
 
 
@@ -28,19 +28,19 @@ export class Tab1Page {
   }
 
   ionViewDidEnter() {
-    this.fileNames = this.filecache.getFileNames();
+    this.fileNames = this.filecache.getFileNames().join(',');
   }
 
   clearCache() {
     this.filecache.deleteAll();
-    this.fileNames = [];
+    this.fileNames = '';
   }
 
   private processXML(file: File) {
     const xmlReader = new FileReader();
     xmlReader.onload = (e: any) => {
       const xmlContent = e.target.result;
-      this.fileNames.push(file.name);
+      this.fileNames += ',' + file.name;
       this.filecache.add(new CachedFile(file.name, xmlContent));
     };
     xmlReader.readAsText(file);
