@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { FileCacheService, CachedFile } from '../services/file-cache.service';
 @Component({
     selector: 'app-tab3',
@@ -15,7 +15,7 @@ export class Tab3Page implements OnInit, OnDestroy {
     runBinding: any;
     files: CachedFile[];
 
-    constructor(private filecache: FileCacheService) {}
+    constructor(private filecache: FileCacheService, private cd: ChangeDetectorRef) {}
 
     ionViewDidEnter() {
         this.files = this.filecache.getAll();
@@ -42,6 +42,7 @@ export class Tab3Page implements OnInit, OnDestroy {
 
     runScript() {
         this.text = '';
+        this.error = '';
         this.worker.postMessage({ script: this.code, camtData: this.files });
         setTimeout(async () => {
             this.worker.terminate();
@@ -64,6 +65,7 @@ export class Tab3Page implements OnInit, OnDestroy {
             this.text = ev.data.text;
             this.error = ev.data.error;
         }
+        this.cd.detectChanges();
     }
 
     onInit(editor) {
