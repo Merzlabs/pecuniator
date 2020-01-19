@@ -6,7 +6,7 @@ interface PecuniatorAccount {
 }
 interface PecuniatorEntry {
     reference: string | null | undefined;
-    amount: string | null | undefined;
+    amount: number | null | undefined;
     creditordebit: string | null | undefined;
     bookingDate: string | null | undefined;
     creditorIBAN: string | null | undefined;

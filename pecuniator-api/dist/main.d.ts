@@ -11,7 +11,7 @@ export declare class PEntry implements PecuniatorEntry {
     private entry;
     constructor(entry: Entry);
     get reference(): string | null | undefined;
-    get amount(): string | null | undefined;
+    get amount(): number;
     get currency(): string | null | undefined;
     get bookingDate(): string | null | undefined;
     get creditorIBAN(): string | null | undefined;

@@ -41,7 +41,7 @@ describe('PecuniAPI', () => {
             expect(entry).toBeDefined();
             expect(entry.reference).toBeUndefined();
             expect(entry.currency).toEqual('EUR');
-            expect(entry.amount).toEqual('4.02');
+            expect(entry.amount).toEqual(4.02);
             expect(entry.creditordebit).toEqual('DBIT');
             expect(entry.bookingDate).toEqual('2019-11-08');
             expect(entry.additionalEntryInfo).toEqual('TRANSFER');

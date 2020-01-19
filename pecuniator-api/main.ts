@@ -24,7 +24,10 @@ export class PEntry implements PecuniatorEntry {
     }
 
     get amount() {
-        return this.entry.amount.value;
+        if (this.entry.amount.value) {
+            return parseFloat(this.entry.amount.value);
+        }
+        return 0;
     }
 
     get currency() {
