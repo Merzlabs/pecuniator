@@ -19,7 +19,6 @@ export class Tab3Page implements OnInit, OnDestroy {
 
     ionViewDidEnter() {
         this.files = this.filecache.getAll();
-        console.log('Loading', this.files.map((elem) => elem.name));
     }
 
     ngOnInit() {

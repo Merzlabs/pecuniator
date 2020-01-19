@@ -42,7 +42,7 @@ if (!firstTransaction) {
         entry.found = []
         checkCategories(entry);         
     }
-    console.log(categories)
+
     for(const name in categories) {
         const cat = categories[name];
         this.postMessage({ textAppend: `|| ${cat.title} - ${cat.amount}€ ||` });

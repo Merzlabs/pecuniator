@@ -30,9 +30,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
       let typings = await res.text();
       // Remove last line with export because monaco intellisense breaks with exports
       typings = typings.substring(0, typings.lastIndexOf('export'));
-      console.log(typings);
       monaco.languages.typescript.javascriptDefaults.addExtraLib(typings, 'api/main.d.ts');
-      console.log((window).monaco);
     });
   } // here monaco object will be available as window.monaco use this function to extend monaco editor functionalities.
 };
