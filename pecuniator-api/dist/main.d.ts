@@ -1,5 +1,6 @@
 import { AccountReport } from 'camtts/dist/types/AccountReport';
 import { Pecuniator, PecuniatorEntry, PecuniatorAccount } from './interface';
+export * from './interface';
 /**
  * Main entry point of API
  */

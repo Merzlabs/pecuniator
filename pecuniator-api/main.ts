@@ -4,6 +4,8 @@ import { Pecuniator, PecuniatorEntry, PecuniatorAccount } from './interface';
 import { CamtAccount, CamtEntry } from './camt';
 import { KlarnaEntry } from './klarna';
 
+export * from './interface';
+
 /**
  * Main entry point of API
  */
@@ -54,5 +56,3 @@ export class PecuniAPI implements Pecuniator {
         return allEntries;
     }
 }
-
-export {Pecuniator, PecuniatorEntry, PecuniatorAccount};
