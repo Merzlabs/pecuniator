@@ -13,7 +13,6 @@ class PAccount {
         return this.account.currency;
     }
 }
-exports.PAccount = PAccount;
 class PEntry {
     constructor(entry) {
         this.entry = entry;
@@ -61,7 +60,6 @@ class PEntry {
         return this.entry.entryDetails.remittanceInformation.unstructured;
     }
 }
-exports.PEntry = PEntry;
 /**
  * Main entry point of API
  */

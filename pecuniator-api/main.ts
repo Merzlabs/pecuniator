@@ -6,7 +6,7 @@ import { Pecuniator, PecuniatorEntry, PecuniatorAccount } from './interface';
 
 // This is the implementation of the interface with use of the CAMT parser
 
-export class PAccount implements PecuniatorAccount {
+class PAccount implements PecuniatorAccount {
 
     constructor(private account: Account) { }
 
@@ -15,7 +15,7 @@ export class PAccount implements PecuniatorAccount {
     }
 }
 
-export class PEntry implements PecuniatorEntry {
+class PEntry implements PecuniatorEntry {
 
     constructor(private entry: Entry) {}
 
@@ -93,11 +93,11 @@ export class PecuniAPI implements Pecuniator {
         this.reports = [];
     }
 
-    get accounts() {
+    get accounts(): PecuniatorAccount[] {
         return this.reports.map((elem) => new PAccount(elem.report.account));
     }
 
-    get entries() {
+    get entries(): PecuniatorEntry[] {
         let allEntries: Array<PEntry> = [];
 
         for (const report of this.reports) {
