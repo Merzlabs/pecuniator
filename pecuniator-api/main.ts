@@ -54,3 +54,5 @@ export class PecuniAPI implements Pecuniator {
         return allEntries;
     }
 }
+
+export {Pecuniator, PecuniatorEntry, PecuniatorAccount};
