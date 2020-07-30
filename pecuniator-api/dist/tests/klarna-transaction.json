@@ -1,0 +1,46 @@
+{
+    "result": {
+        "transactions": [
+            {
+                "transaction_id": "r29ndc7gqflfcgdnvpala41njf6c8j7s",
+                "reference": "Flight 123",
+                "amount": {
+                    "amount": 12345,
+                    "currency": "EUR"
+                },
+                "counter_party": {
+                    "id": "123e4567-e89b-12d3-a456-426655440000",
+                    "alias": "Girokonto",
+                    "account_number": "123456789",
+                    "iban": "DE44500105175407324931",
+                    "holder_name": "Max Mustermann",
+                    "holder_address": {
+                        "street_address": "Konrad-Adenauer-Straße 21",
+                        "street_address2": "Backside of the House, Floor 2",
+                        "postalcode": "35440",
+                        "city": "Linden",
+                        "region": "Hesse",
+                        "country": "DE"
+                    },
+                    "bank_code": "51091700",
+                    "bic": "VRBUDE51XXX",
+                    "bank_name": "VR Bank Untertaunus eG",
+                    "bank_address": {
+                        "street_address": "Konrad-Adenauer-Straße 21",
+                        "street_address2": "Backside of the House, Floor 2",
+                        "postalcode": "35440",
+                        "city": "Linden",
+                        "region": "Hesse",
+                        "country": "DE"
+                    },
+                    "transfer_type": "NONE",
+                    "account_type": "DEFAULT"
+                },
+                "date": "2018-10-23",
+                "state": "PROCESSED",
+                "type": "DEBIT",
+                "method": "TRANSFER"
+            }
+        ]
+    }
+}
