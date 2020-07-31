@@ -29,6 +29,7 @@ class PecuniAPI {
     }
     clear() {
         this.reports = [];
+        this.transactions = [];
     }
     get accounts() {
         return this.reports.map((elem) => new camt_1.CamtAccount(elem.report.account));

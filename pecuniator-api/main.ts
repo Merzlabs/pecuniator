@@ -35,6 +35,7 @@ export class PecuniAPI implements Pecuniator {
 
     clear() {
         this.reports = [];
+        this.transactions = [];
     }
 
     get accounts(): PecuniatorAccount[] {
