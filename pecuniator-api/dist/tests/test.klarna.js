@@ -40,7 +40,7 @@ describe('PecuniAPI - Klarna', () => {
             expect(entry).toBeDefined();
             expect(entry.reference).toEqual('Flight 123');
             expect(entry.currency).toEqual('EUR');
-            expect(entry.amount).toEqual(0);
+            expect(entry.amount).toEqual(12345);
             expect(entry.creditordebit).toEqual('DBIT');
             expect(entry.bookingDate).toEqual('2018-10-23');
             expect(entry.additionalEntryInfo).toEqual('TRANSFER');

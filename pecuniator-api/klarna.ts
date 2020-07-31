@@ -20,8 +20,8 @@ export class KlarnaEntry implements PecuniatorEntry {
     }
 
     get amount() {
-        if (this.entry.amount.value) {
-            return parseFloat(this.entry.amount.value);
+        if (this.entry.amount.amount) {
+            return parseFloat(this.entry.amount.amount);
         }
         return 0;
     }
