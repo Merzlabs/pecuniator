@@ -17,7 +17,9 @@ export declare class KlarnaEntry implements PecuniatorEntry {
     get debitorIBAN(): any;
     get debtorName(): any;
     get debtorUltimateName(): any;
-    get creditordebit(): "DBIT" | "CRDT" | undefined;
+    get creditordebit(): "CRDT" | "DBIT" | undefined;
     get additionalEntryInfo(): any;
     get remittanceInformation(): any[];
+    get isCredit(): boolean;
+    get isDebit(): boolean;
 }

@@ -40,6 +40,9 @@ interface PecuniatorEntry {
      * Subject / Verwendungszweck
      */
     remittanceInformation: string[] | null | undefined;
+
+    isCredit: boolean;
+    isDebit: boolean;
 }
 
 interface Pecuniator {

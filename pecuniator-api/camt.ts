@@ -71,4 +71,12 @@ export class CamtEntry implements PecuniatorEntry {
     get remittanceInformation() {
         return this.entry.entryDetails.remittanceInformation.unstructured as string[];
     }
+
+    get isCredit() {
+        return this.entry.creditdebitIndicator === 'CRDT';
+    }
+
+    get isDebit() {
+        return this.entry.creditdebitIndicator === 'DBIT';
+    }
 }

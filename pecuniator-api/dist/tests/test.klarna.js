@@ -51,6 +51,8 @@ describe('PecuniAPI - Klarna', () => {
             expect(entry.creditorUltimateName).toEqual('Max Mustermann');
             expect(entry.debtorName).toEqual('Max Mustermann');
             expect(entry.debtorUltimateName).toEqual('Max Mustermann');
+            expect(entry.isDebit).toEqual(true);
+            expect(entry.isCredit).toEqual(false);
             // Verwendungszweck
             expect(entry.remittanceInformation).toEqual(['Flight 123']);
         });

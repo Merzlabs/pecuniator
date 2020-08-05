@@ -22,4 +22,6 @@ export declare class CamtEntry implements PecuniatorEntry {
     get creditordebit(): string | null | undefined;
     get additionalEntryInfo(): string | null | undefined;
     get remittanceInformation(): string[];
+    get isCredit(): boolean;
+    get isDebit(): boolean;
 }

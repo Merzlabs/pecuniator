@@ -52,6 +52,9 @@ describe('PecuniAPI - CAMT', () => {
             expect(entry.debtorName).toEqual('Debtor Name');
             expect(entry.debtorUltimateName).toEqual('Ultimate Debtor Name');
 
+            expect(entry.isDebit).toEqual(true);
+            expect(entry.isCredit).toEqual(false);
+
             // Verwendungszweck
             expect(entry.remittanceInformation).toEqual(['COUNT        1']);
         });

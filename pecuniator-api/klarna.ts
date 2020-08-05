@@ -80,4 +80,12 @@ export class KlarnaEntry implements PecuniatorEntry {
     get remittanceInformation() {
         return [this.entry.reference];
     }
+
+    get isCredit() {
+        return this.entry.type === 'CREDIT';
+    }
+
+    get isDebit() {
+        return this.entry.type === 'DEBIT';
+    }
 }

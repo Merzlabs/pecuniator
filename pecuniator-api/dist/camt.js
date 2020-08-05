@@ -56,5 +56,11 @@ class CamtEntry {
     get remittanceInformation() {
         return this.entry.entryDetails.remittanceInformation.unstructured;
     }
+    get isCredit() {
+        return this.entry.creditdebitIndicator === 'CRDT';
+    }
+    get isDebit() {
+        return this.entry.creditdebitIndicator === 'DBIT';
+    }
 }
 exports.CamtEntry = CamtEntry;
