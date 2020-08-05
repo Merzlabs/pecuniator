@@ -43,7 +43,7 @@ describe('PecuniAPI - Klarna', () => {
             expect(entry.additionalEntryInfo).toEqual('TRANSFER');
 
             // Transaction parties
-            expect(entry.debitorIBAN).toEqual('DE44500105175407324931');
+            expect(entry.debtorIBAN).toEqual('DE44500105175407324931');
             expect(entry.creditorIBAN).toEqual('DE44500105175407324931');
 
             expect(entry.creditorName).toEqual('Max Mustermann');

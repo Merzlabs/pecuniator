@@ -18,13 +18,13 @@ interface PecuniatorEntry {
      * Ultimate party to which an amount of money is due. / Konto des Lastschrifteinreichers
      */
     creditorUltimateName: string | null | undefined;
-    debitorIBAN: string | null | undefined;
+    debtorIBAN: string | null | undefined;
     /**
      * Debtor / Zahler
      */
     debtorName: string | null | undefined;
     /**
-     * Ultimate debitor different from creditor / Abweichender Zahler
+     * Ultimate debtor different from creditor / Abweichender Zahler
      */
     debtorUltimateName: string | null | undefined;
     /**

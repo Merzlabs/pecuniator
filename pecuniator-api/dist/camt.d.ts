@@ -16,7 +16,7 @@ export declare class CamtEntry implements PecuniatorEntry {
     get creditorIBAN(): string | null | undefined;
     get creditorName(): string | null | undefined;
     get creditorUltimateName(): string | null | undefined;
-    get debitorIBAN(): string | null | undefined;
+    get debtorIBAN(): string | null | undefined;
     get debtorName(): string | null | undefined;
     get debtorUltimateName(): string | null | undefined;
     get creditordebit(): string | null | undefined;

@@ -8,7 +8,7 @@
     "url": "ssh://git@github.com/Merzlabs/pecuniator.git",
     "directory": "packages/api"
   },
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Public script API for Pecuniator project",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
@@ -26,7 +26,7 @@
   "homepage": "https://github.com/Merzlabs/pecuniator-app#readme",
   "dependencies": {
     "browserify": "^16.5.0",
-    "camtts": "0.0.4",
+    "camtts": "0.0.5",
     "tsify": "^4.0.1",
     "typescript": "^3.7.2",
     "xmldom": "^0.1.27"

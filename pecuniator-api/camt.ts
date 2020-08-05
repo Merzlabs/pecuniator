@@ -48,8 +48,8 @@ export class CamtEntry implements PecuniatorEntry {
         return this.entry.entryDetails.transactionDetails.relatedParties.ultimateCreditor.name;
     }
 
-    get debitorIBAN() {
-        return this.entry.entryDetails.transactionDetails.relatedParties.debitorAccount.id.iban;
+    get debtorIBAN() {
+        return this.entry.entryDetails.transactionDetails.relatedParties.debtorAccount.id.iban;
     }
 
     get debtorName() {

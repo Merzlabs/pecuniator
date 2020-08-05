@@ -41,7 +41,7 @@ class KlarnaEntry {
         // TODO
         return this.entry.counter_party.holder_name;
     }
-    get debitorIBAN() {
+    get debtorIBAN() {
         // TODO
         return this.entry.counter_party.iban;
     }
