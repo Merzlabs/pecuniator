@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { FileCacheService, CachedFile } from '../services/file-cache.service';
+import { PostMessageTypes } from 'typings/postMessagePayloads';
+
 @Component({
     selector: 'app-tab3',
     templateUrl: 'tab3.page.html',
@@ -43,7 +45,9 @@ export class Tab3Page implements OnInit, OnDestroy {
     runScript() {
         this.text = '';
         this.error = '';
-        this.worker.postMessage({ script: this.code, camtData: this.files });
+
+        const commandMessage: PostMessageTypes.CommandPayload = { script: this.code, camtData: this.files };
+        this.worker.postMessage(commandMessage);
         setTimeout(async () => {
             this.worker.terminate();
 
@@ -58,12 +62,17 @@ export class Tab3Page implements OnInit, OnDestroy {
         }, 60000);
     }
 
+    private successfulReturn = (testedReturn: any): testedReturn is PostMessageTypes.ReturnPayload  => {
+        return testedReturn.textAppend;
+    }
+
     private handleMessage(ev: MessageEvent) {
-        if (ev.data.textAppend) {
-            this.text += ev.data.textAppend;
+        if (this.successfulReturn(ev.data)) {
+            const returnedData: PostMessageTypes.ReturnPayload = ev.data;
+            this.text += returnedData.textAppend;
         } else {
-            this.text = ev.data.text;
-            this.error = ev.data.error;
+            const returnedData: PostMessageTypes.ErrorPayload = ev.data;
+            this.error = returnedData.error;
         }
         this.cd.detectChanges();
     }
@@ -83,8 +92,9 @@ export class Tab3Page implements OnInit, OnDestroy {
 
     // Example content
     addExample() {
-        const example = `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02 camt.052.001.02.xsd">
+        const example = `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02 camt.052.001.02.xsd">
     <BkToCstmrAcctRpt>
         <GrpHdr>
             <MsgId>camt52_GR</MsgId>
