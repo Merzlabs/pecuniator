@@ -39,7 +39,7 @@
     "@ionic/angular": "^4.7.1",
     "@merzlabs/pecuniator-widgets": "0.0.3",
     "camtts": "0.0.2",
-    "core-js": "^2.5.4",
+    "core-js": "^3.6.4",
     "monaco-editor": "^0.18.1",
     "ngx-monaco-editor": "^8.1.1",
     "rxjs": "~6.5.1",
