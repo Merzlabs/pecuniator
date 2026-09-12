@@ -26,7 +26,7 @@
     "build:web": "ionic build --prod"
   },
   "dependencies": {
-    "@angular/common": "~9.0.0-rc.1",
+    "@angular/common": "~20.3.28",
     "@angular/core": "~9.0.0-rc.1",
     "@angular/forms": "~9.0.0-rc.1",
     "@angular/platform-browser": "~9.0.0-rc.1",
